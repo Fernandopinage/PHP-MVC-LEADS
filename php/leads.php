@@ -64,13 +64,13 @@ if (isset($_POST['salvar_leads'])) {
                     <label for="inputState">Produto</label>
                     <select name="produto" id="produto" class="form-control form-control-sm">
                         <option selected></option>
-                        <option value="01">Volvo</option>
-                        <option value="02">Saab</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Saab">Saab</option>
                         <?php
                         /*
                         foreach ($dado as $dados) {
 
-                            echo "<option value=' . $dados->getId() . '>" . $dados->getDesc() . "</option>";
+                            echo "<option value=' . $dados->getDesc() . '>" . $dados->getDesc() . "</option>";
                         }*/
                         ?>
 
@@ -105,6 +105,12 @@ if (isset($_POST['salvar_leads'])) {
     </div>
 </div>
 
+<style>
+form-control:disabled, .form-control[readonly]{
+    background-color: #fff;
+}
+
+</style>
 
 <script>
     $(document).ready(function() {
@@ -117,7 +123,7 @@ if (isset($_POST['salvar_leads'])) {
 
             if (produto != '') {
 
-                div += ' <div class="form-row" ><div class="form-group col-md-4"><input type="text" class="form-control form-control-sm"  name="produto[]"value="' + produto + '"></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="valor[]" value="' + valor + '"></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="desconto[]" value="' + desconto + '"></div></div>';
+                div += ' <div class="form-row" ><div class="form-group col-md-4"><input type="text" class="form-control form-control-sm"  name="produto[]"value="' + produto + '" readonly></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="valor[]" value="' + valor + '"readonly></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="desconto[]" value="' + desconto + '"readonly></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
 
