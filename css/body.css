@@ -1,0 +1,40 @@
+
+.foottitle{                         /*  Foot da pagina com destaque no nome Progride  */
+
+    text-decoration: none;
+    margin-left: 500px;
+    margin-bottom: -20px;
+    color: #FF7F00;
+}
+/*
+input{
+
+    text-transform: uppercase;
+}
+select{
+    text-transform: uppercase;
+}
+option{
+    text-transform: uppercase;
+}
+
+.fc-toolbar-title{                 
+
+    text-transform: uppercase;
+}
+*/
+::-webkit-input-placeholder {
+    text-transform: initial;
+ }
+ 
+ :-moz-placeholder { 
+    text-transform: initial;
+ }
+ 
+ ::-moz-placeholder {  
+    text-transform: initial;
+ }
+ 
+ :-ms-input-placeholder { 
+    text-transform: initial;
+ }
