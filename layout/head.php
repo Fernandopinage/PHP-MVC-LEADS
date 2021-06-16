@@ -12,7 +12,7 @@
     <script src='../js/main.js'></script>
     <script src='../js/locales-all.js'></script>
     <script src='../locales/pt-br.js'></script>
-    <title>Konec® </title>
+    <title>Progride® </title>
 </head>
 
 <body>
@@ -29,11 +29,23 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="?page=parceiro/">Parceiros</a>
+                        <a class="dropdown-item" href="?page=produto/">Produtos</a>
                        <!-- <a class="dropdown-item" href="?page=colaborador/">Colaborador</a> -->
                        <!-- <a class="dropdown-item" href="?page=contrato/">Negócios</a> -->
                         <a class="dropdown-item" href="?page=usuario/">Usuário</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Proposta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="?page=proposta/">Criar Proposta</a>
+                    </div>
+                </li>
+
+                
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

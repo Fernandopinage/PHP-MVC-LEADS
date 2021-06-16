@@ -38,7 +38,9 @@
             case 'usuario/':
                 include_once "../php/usuario.php";
                 break;
-
+            case 'proposta/':
+                include_once "../php/leads.php";
+                break;
 
             default:
                 # code...
