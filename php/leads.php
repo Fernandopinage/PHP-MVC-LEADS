@@ -123,7 +123,7 @@ form-control:disabled, .form-control[readonly]{
 
             if (produto != '') {
 
-                div += ' <div class="form-row" ><div class="form-group col-md-4"><input type="text" class="form-control form-control-sm"  name="produto[]"value="' + produto + '" readonly></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="valor[]" value="' + valor + '"readonly></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="desconto[]" value="' + desconto + '"readonly></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div>';
+                div += '<hr> <div class="form-row" ><div class="form-group col-sl-1"><input type="checkbox"> <label class="form-check-label" for="exampleCheck1"></label></div><div class="form-group col-md-3"><input type="text" class="form-control form-control-sm"  name="produto[]"value="' + produto + '" readonly></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="valor[]" value="' + valor + '"readonly></div><div class="form-group col-md-1"><input type="text" class="form-control form-control-sm"  name="desconto[]" value="' + desconto + '"readonly></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
 
