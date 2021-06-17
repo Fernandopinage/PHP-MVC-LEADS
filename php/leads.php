@@ -17,7 +17,7 @@ if (isset($_POST['salvar_leads'])) {
 </div>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-proposta-tab" data-toggle="tab" href="#nav-proposta" role="tab" aria-controls="nav-proposta" aria-selected="true" style="color: #FF7F00;">Proposta</a>
+        <a class="nav-item nav-link active" id="nav-proposta-tab" data-toggle="tab" href="#nav-proposta" role="tab" aria-controls="nav-proposta" aria-selected="true" style="color: #000;">Proposta</a>
     </div>
 </nav><br>
 

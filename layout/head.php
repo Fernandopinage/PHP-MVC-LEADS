@@ -17,7 +17,7 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <a class="navbar-brand" href="?page=home/" style="color: #FF7F00;">HOME</a>
+        <a class="navbar-brand" href="?page=home/" style="color: #f9d228;">PROGRIDE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,7 +67,7 @@
                  -->
                  
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FF7F00;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
                         Logout
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

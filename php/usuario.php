@@ -46,9 +46,9 @@ if (isset($_POST['usuario'])) {
 </div>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-usuario-tab" data-toggle="tab" href="#nav-usuario" role="tab" aria-controls="nav-usuario" aria-selected="true" style="color: #FF7F00;">Usuário</a>
-        <!-- <a class="nav-item nav-link" id="nav-acesso-tab" data-toggle="tab" href="#nav-acesso" role="tab" aria-controls="nav-acesso" aria-selected="false" style="color: #FF7F00;">Acesso</a>
-        <a class="nav-item nav-link" id="nav-aplicacao-tab" data-toggle="tab" href="#nav-aplicacao" role="tab" aria-controls="nav-aplicacao" aria-selected="false" style="color: #FF7F00;">Aplicação</a> -->
+        <a class="nav-item nav-link active" id="nav-usuario-tab" data-toggle="tab" href="#nav-usuario" role="tab" aria-controls="nav-usuario" aria-selected="true" style="color: #000;">Usuário</a>
+        <!-- <a class="nav-item nav-link" id="nav-acesso-tab" data-toggle="tab" href="#nav-acesso" role="tab" aria-controls="nav-acesso" aria-selected="false" style="color: #000;">Acesso</a>
+        <a class="nav-item nav-link" id="nav-aplicacao-tab" data-toggle="tab" href="#nav-aplicacao" role="tab" aria-controls="nav-aplicacao" aria-selected="false" style="color: #000;">Aplicação</a> -->
     </div>
 </nav><br>
 
@@ -132,6 +132,7 @@ if (isset($_POST['usuario'])) {
                     <input type="date" class="form-control form-control-sm" name="data" id="data" placeholder="" value="<?php echo date('Y-m-d'); ?>">
                 </div>
             </div>
+            <!--
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4" id="option">Tempo de Expiração</label>
@@ -161,6 +162,7 @@ if (isset($_POST['usuario'])) {
                     </div>
                 </div>
             </div>
+            -->
     </div>
     <!--********************************************************************************************************* --->
     <!-- ****************************************** Aplicação ************************************************** -->
