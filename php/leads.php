@@ -28,6 +28,11 @@ if (isset($_POST['salvar_leads'])) {
 
         <form action="" method="POST">
             <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4" id="email">Filial</label>
+                    <input type="text" class="form-control form-control-sm" name="filial" id="filial" placeholder="">
+                </div>
                 <div class="form-group col-md-4">
                     <label for="inputState" id="empresa">Empresa</label>
                     <select id="funcao" name="empresa" class="form-control form-control-sm">
@@ -46,6 +51,12 @@ if (isset($_POST['salvar_leads'])) {
                     <label for="inputEmail4" id="email">Email</label>
                     <input type="text" class="form-control form-control-sm" name="email" id="email" placeholder="">
                 </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Endereço</label>
+                    <input type="text" class="form-control form-control-sm" name="endereco" id="endereco" placeholder="">
+                </div>
                 <div class="form-group col-md-2">
                     <label for="inputFoto" id="foto">Telefone</label>
                     <input type="text" class="form-control form-control-sm" id="foto" name="foto" placeholder="">
@@ -54,11 +65,33 @@ if (isset($_POST['salvar_leads'])) {
                     <label for="inputFoto" id="foto">Celular</label>
                     <input type="text" class="form-control form-control-sm" id="foto" name="foto" placeholder="">
                 </div>
+                <div class="form-group col-md-2">
+                    <label for="inputState">Fase da Proposta</label>
+                    <select id="funcao" name="fase" class="form-control form-control-sm">
+                        <option selected value="elaboração">Elaboração</option>
+                        <option value="negociação">Negociação</option>
+                        <option value="contrato">Contrato</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputState">Status</label>
+                    <select id="funcao" name="status" class="form-control form-control-sm">
+                        <option selected value="frio">Frio</option>
+                        <option value="morno">Morno</option>
+                        <option value="quente">Quente</option>
+                    </select>
+                </div>
             </div>
+
             <hr>
             <!-- Adicionando produtos -->
+            <p class="text-white bg-secondary">Lista de Produtos</p>
+            <div id="lista" style="margin-bottom: 25; margin-top: 25px; border: 1px;">
+                        <p id="selecionar_produto" class="text-center">Nenhum produto selecionando</p>
+            </div>
+            <!-- ******************** -->
 
-            <p class="text-white bg-secondary">Adicione produtos</p>
+            <p class="text-white bg-secondary">Selecionar Produtos</p>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputState">Produto</label>
@@ -76,64 +109,60 @@ if (isset($_POST['salvar_leads'])) {
 
                     </select>
                 </div>
-                <div class="form-group input-group-sm col-md-2">
-                    <label for="inputEmail4" id="email">valor</label>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">R$</span>
-                        <input type="text" class="form-control form-control-sm" id="valor">
-                    </div>
-                </div>
-                <div class="form-group input-group-sm col-md-2" id="formulario">
-                    <label for="inputEmail4" id="email">Desconto</label>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">%</span>
-                        <input type="text" class="form-control form-control-sm" id="desconto">
-                    </div>
-                </div>
+
                 <div class="form-group input-group-sm col-md-2">
 
                     <a href="#" data-id="1" id="adicionarCampo" class="btn btn-primary" style="margin-top: 25px;">Adicionar</a>
                 </div>
             </div>
-            <p class="text-white bg-secondary">Lista de Produtos</p>
-            <div id="lista">
-            </div>
             <!-- ***********************  -->
             <div class="text-right">
-            <input type="submit" class="btn btn-success" name="salvar_leads" value="Salvar Leads">
+                <input type="submit" class="btn btn-success" name="salvar_leads" value="Salvar Leads">
             </div>
         </form>
 
     </div>
 </div>
 
-<style>
-form-control:disabled, .form-control[readonly]{
-    background-color: #fff;
-}
 
-</style>
 
 <script>
     $(document).ready(function() {
 
         $('#adicionarCampo').click(function() {
             var produto = document.getElementById('produto').value;
-            var valor = document.getElementById('valor').value;
-            var desconto = document.getElementById('desconto').value;
+
             var div = document.getElementById('lista').innerHTML;
 
             if (produto != '') {
 
-                div += '<hr> <div class="form-row" ><div class="form-group col-sl-1"><input type="checkbox"> <label class="form-check-label" for="exampleCheck1"></label></div><div class="form-group col-md-3"><input type="text" class="form-control form-control-sm"  name="produto[]"value="' + produto + '" readonly></div><div class="form-group col-md-2"><input type="text" class="form-control form-control-sm"  name="valor[]" value="' + valor + '"readonly></div><div class="form-group col-md-1"><input type="text" class="form-control form-control-sm"  name="desconto[]" value="' + desconto + '"readonly></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div>';
+                div += '<hr> <div class="form-row"><div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div><div class="form-group col-md-3"><label class="form-check-label" for="exampleCheck1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]"></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="desconto[]"></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
-
+                document.getElementById('selecionar_produto').style.display = 'none';
 
             } else {
-
+                document.getElementById('selecionar_produto').style.display = 'block';
             }
+
+
         });
 
+
     });
+</script>
+
+<script>
+
+function myFunction() {
+    if($("#delete").is(':checked')){
+        //$("#confirmacao").show();
+        console.log('sim')
+    } else {
+        //$("#confirmacao").hide();
+        console.log('nao')
+    }
+}
+
+
 </script>
