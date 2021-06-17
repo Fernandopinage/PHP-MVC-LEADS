@@ -5,7 +5,7 @@ include_once "../dao/GrupoUsuarioDAO.php";
 include_once "../class/classUsuario.php";
 include_once "../dao/UsuarioDao.php";
 
-session_start();
+//session_start();
 
 $GrupoUsuario = new ClassGrupoUsuarioDAO();
 $dado =  $GrupoUsuario->selectGrupoUsuario();
@@ -47,8 +47,8 @@ if (isset($_POST['usuario'])) {
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-usuario-tab" data-toggle="tab" href="#nav-usuario" role="tab" aria-controls="nav-usuario" aria-selected="true" style="color: #FF7F00;">Usuário</a>
-        <a class="nav-item nav-link" id="nav-acesso-tab" data-toggle="tab" href="#nav-acesso" role="tab" aria-controls="nav-acesso" aria-selected="false" style="color: #FF7F00;">Acesso</a>
-        <a class="nav-item nav-link" id="nav-aplicacao-tab" data-toggle="tab" href="#nav-aplicacao" role="tab" aria-controls="nav-aplicacao" aria-selected="false" style="color: #FF7F00;">Aplicação</a>
+       <!-- <a class="nav-item nav-link" id="nav-acesso-tab" data-toggle="tab" href="#nav-acesso" role="tab" aria-controls="nav-acesso" aria-selected="false" style="color: #FF7F00;">Acesso</a>
+        <a class="nav-item nav-link" id="nav-aplicacao-tab" data-toggle="tab" href="#nav-aplicacao" role="tab" aria-controls="nav-aplicacao" aria-selected="false" style="color: #FF7F00;">Aplicação</a> -->
     </div>
 </nav><br>
 
@@ -164,6 +164,7 @@ if (isset($_POST['usuario'])) {
     </div>
     <!--********************************************************************************************************* --->
     <!-- ****************************************** Aplicação ************************************************** -->
+    
     <div class="tab-pane fade" id="nav-acesso" role="tabpanel" aria-labelledby="nav-acesso-tab">
         <p class="text-white bg-secondary text-center">ACESSO</p>
         <div class="form-row">
@@ -176,13 +177,13 @@ if (isset($_POST['usuario'])) {
     <div class="tab-pane fade" id="nav-aplicacao" role="tabpanel" aria-labelledby="nav-aplicacao-tab">
         <p class="text-white bg-secondary text-center">APLICAÇÃO</p>
         <div class="form-row">
-            <div class="text-right">
-                <input class="btn btn-success" name="usuario" type="submit" value="Salvar registro">
-            </div>
         </div>
 
     </div>
     <!-- **************************************************************************************************** -->
+            <div class="text-right">
+                <input class="btn btn-success" name="usuario" type="submit" value="Salvar registro">
+            </div>
 
     </form>
 </div>
