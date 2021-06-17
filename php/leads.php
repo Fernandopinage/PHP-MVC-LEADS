@@ -85,13 +85,14 @@ if (isset($_POST['salvar_leads'])) {
 
             <hr>
             <!-- Adicionando produtos -->
-            <p class="text-white bg-secondary">Lista de Produtos</p>
-            <div id="lista" style="margin-bottom: 25; margin-top: 25px; border: 1px;">
-                        <p id="selecionar_produto" class="text-center">Nenhum produto selecionando</p>
+            <p class="text-white bg-secondary text-center">Lista de Produtos</p>
+            <div id="lista">
+                <p id="selecionar_produto" class="text-center">Nenhum produto na lista</p>
+
             </div>
             <!-- ******************** -->
 
-            <p class="text-white bg-secondary">Selecionar Produtos</p>
+            <p class="text-white bg-secondary text-center">Selecionar Produtos</p>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputState">Produto</label>
@@ -110,9 +111,9 @@ if (isset($_POST['salvar_leads'])) {
                     </select>
                 </div>
 
-                <div class="form-group input-group-sm col-md-2">
-
-                    <a href="#" data-id="1" id="adicionarCampo" class="btn btn-primary" style="margin-top: 25px;">Adicionar</a>
+                <div class="form-group col-md-3">
+                    <a href="#" data-id="1" id="adicionarCampo" class="btn btn-primary" style="margin-top: 25px; border-radius:17px;">Adicionar</a>
+                    <a href="#" data-id="1" id="removerCampo" class="btn btn-danger" style="margin-top: 25px; border-radius:17px;" onclick="remover()">Remover</a>
                 </div>
             </div>
             <!-- ***********************  -->
@@ -131,7 +132,6 @@ if (isset($_POST['salvar_leads'])) {
 
         $('#adicionarCampo').click(function() {
             var produto = document.getElementById('produto').value;
-
             var div = document.getElementById('lista').innerHTML;
 
             if (produto != '') {
@@ -139,10 +139,10 @@ if (isset($_POST['salvar_leads'])) {
                 div += '<hr> <div class="form-row"><div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div><div class="form-group col-md-3"><label class="form-check-label" for="exampleCheck1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]"></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="desconto[]"></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
-                document.getElementById('selecionar_produto').style.display = 'none';
+
 
             } else {
-                document.getElementById('selecionar_produto').style.display = 'block';
+
             }
 
 
@@ -153,16 +153,19 @@ if (isset($_POST['salvar_leads'])) {
 </script>
 
 <script>
+    //$("#removerCampo").hide();
 
-function myFunction() {
-    if($("#delete").is(':checked')){
-        //$("#confirmacao").show();
-        console.log('sim')
-    } else {
-        //$("#confirmacao").hide();
-        console.log('nao')
+    function myFunction() {
+
     }
-}
+</script>
 
-
+<script>
+    function remover() {
+        var a =  document.querySelectorAll("input:checked");
+        if(document.querySelectorAll("input:checked") == null){
+            console.log(a)
+            $("#lista").hide();
+        }
+    }
 </script>
