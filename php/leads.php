@@ -92,14 +92,16 @@ if (isset($_POST['salvar_leads'])) {
                 </div>
                 <div class="form-group input-group-sm col-md-2">
 
-                    <a href="#" data-id="1" id="adicionarCampo" class="btn btn-success" style="margin-top: 25px;">Adicionar produto</a>
+                    <a href="#" data-id="1" id="adicionarCampo" class="btn btn-primary" style="margin-top: 25px;">Adicionar</a>
                 </div>
             </div>
             <p class="text-white bg-secondary">Lista de Produtos</p>
             <div id="lista">
             </div>
             <!-- ***********************  -->
-            <input type="submit" class="btn btn-primary" name="salvar_leads" value="Salvar">
+            <div class="text-right">
+            <input type="submit" class="btn btn-success" name="salvar_leads" value="Salvar Leads">
+            </div>
         </form>
 
     </div>

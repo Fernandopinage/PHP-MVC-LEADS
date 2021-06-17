@@ -57,7 +57,7 @@ if (isset($_POST['usuario'])) {
         <p class="text-white bg-secondary text-center">DADOS DO USUÁRIO</p>
         <div class="text-right">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Nova Função
+            <img src="../img/outline_add_white_24dp.png"> Nova Função
             </button>
 
         </div>
