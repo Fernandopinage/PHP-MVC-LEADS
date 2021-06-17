@@ -41,7 +41,9 @@
             case 'proposta/':
                 include_once "../php/leads.php";
                 break;
-
+            case 'produto/':
+                include_once "../php/produto.php";
+                break;
             default:
                 # code...
                 break;

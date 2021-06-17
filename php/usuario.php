@@ -47,7 +47,7 @@ if (isset($_POST['usuario'])) {
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-usuario-tab" data-toggle="tab" href="#nav-usuario" role="tab" aria-controls="nav-usuario" aria-selected="true" style="color: #FF7F00;">Usuário</a>
-       <!-- <a class="nav-item nav-link" id="nav-acesso-tab" data-toggle="tab" href="#nav-acesso" role="tab" aria-controls="nav-acesso" aria-selected="false" style="color: #FF7F00;">Acesso</a>
+        <!-- <a class="nav-item nav-link" id="nav-acesso-tab" data-toggle="tab" href="#nav-acesso" role="tab" aria-controls="nav-acesso" aria-selected="false" style="color: #FF7F00;">Acesso</a>
         <a class="nav-item nav-link" id="nav-aplicacao-tab" data-toggle="tab" href="#nav-aplicacao" role="tab" aria-controls="nav-aplicacao" aria-selected="false" style="color: #FF7F00;">Aplicação</a> -->
     </div>
 </nav><br>
@@ -129,7 +129,7 @@ if (isset($_POST['usuario'])) {
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputEmail4" id="data">Data de Cadastro</label>
-                    <input type="date" class="form-control form-control-sm" name="data" id="data" placeholder="">
+                    <input type="date" class="form-control form-control-sm" name="data" id="data" placeholder="" value="<?php echo date('Y-m-d'); ?>">
                 </div>
             </div>
             <div class="form-row">
@@ -164,7 +164,7 @@ if (isset($_POST['usuario'])) {
     </div>
     <!--********************************************************************************************************* --->
     <!-- ****************************************** Aplicação ************************************************** -->
-    
+
     <div class="tab-pane fade" id="nav-acesso" role="tabpanel" aria-labelledby="nav-acesso-tab">
         <p class="text-white bg-secondary text-center">ACESSO</p>
         <div class="form-row">
@@ -181,9 +181,9 @@ if (isset($_POST['usuario'])) {
 
     </div>
     <!-- **************************************************************************************************** -->
-            <div class="text-right">
-                <input class="btn btn-success" name="usuario" type="submit" value="Salvar registro">
-            </div>
+    <div class="text-right">
+        <input class="btn btn-success" name="usuario" type="submit" value="Salvar registro">
+    </div>
 
     </form>
 </div>

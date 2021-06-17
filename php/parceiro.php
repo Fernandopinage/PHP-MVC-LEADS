@@ -309,7 +309,9 @@ if (isset($_POST['cadastrar'])) {
             </div>
 
         </div>
-        <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra dadados </button>
+        <div class="text-right">
+        <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dadados </button>
+        </div>
         <!-- **************************************************************************************************** -->
         <script>
             var opt = document.getElementById('opt').value;
