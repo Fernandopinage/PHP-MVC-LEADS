@@ -32,11 +32,11 @@
                     </div>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="cliente">Data Inicio</label>
+                    <label for="cliente">Dt. Inicio</label>
                     <input type="date" class="form-control form-control-sm" id="produto" value="<?php echo date('Y-m-d'); ?>" placeholder="">
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="cliente">Data Termino</label>
+                    <label for="cliente">Dt. Término</label>
                     <input type="date" class="form-control form-control-sm" id="produto" placeholder="" value="<?php echo date('Y-m-d'); ?>">
                 </div>
             </div>
