@@ -118,11 +118,19 @@ if (isset($_POST['salvar_leads'])) {
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="inputState">Descrição</label>
                     <div class="form-group">
                         <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea>
                     </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" id="email">DT. Inicio</label>
+                    <input type="date" class="form-control form-control-sm" name="data_inicio" id="data_inicio" value="<?php echo date('Y-m-d');?>" placeholder="">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4" id="email">DT. Termino</label>
+                    <input type="date" class="form-control form-control-sm" name="data_fim" id="data_fim" placeholder="">
                 </div>
             </div>
 
@@ -209,7 +217,7 @@ if (isset($_POST['salvar_leads'])) {
             if (produto != '') {
 
                 //<div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div>
-                div += '<hr> <div class="form-row"><div class="form-group col-md-4"><label for="exampleInputEmail1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + valor_hidder + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
+                div += '<hr> <div class="form-row"><div class="form-group col-md-4"><label for="exampleInputEmail1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1"> Valor Unitário</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + valor_hidder + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
             } else {

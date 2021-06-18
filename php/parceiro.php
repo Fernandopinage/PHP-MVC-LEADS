@@ -152,7 +152,7 @@ if (isset($_POST['cadastrar'])) {
             </div>
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label for="inputEmail4">Email</label>
+                    <label for="inputEmail4">E-mail</label>
                     <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="">
                 </div>
                 <div class="form-group col-md-4">
