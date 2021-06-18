@@ -111,8 +111,8 @@ if (isset($_POST['salvar_leads'])) {
                         <option selected></option>
                         <?php
                         foreach ($prod as $prod) {
-                        ?>    
-                        <option value="<?php echo $prod->getProduto(); ?>"><?php echo $prod->getProduto(); ?></option>
+                        ?>
+                            <option value="<?php echo $prod->getProduto(); ?>"><?php echo $prod->getProduto(); ?></option>
                         <?php
                         }
 
@@ -120,7 +120,10 @@ if (isset($_POST['salvar_leads'])) {
 
                     </select>
                 </div>
-
+                <div class="form-group col-md-2">
+                    <div id="hiddenValor">
+                    </div>
+                </div>
                 <div class="form-group col-md-3">
                     <a href="#" data-id="1" id="adicionarCampo" class="btn btn-primary" style="margin-top: 25px; border-radius:17px;">Adicionar</a>
                     <a href="#" data-id="1" id="removerCampo" class="btn btn-danger" style="margin-top: 25px; border-radius:17px;" onclick="remover()">Remover</a>
@@ -135,6 +138,30 @@ if (isset($_POST['salvar_leads'])) {
     </div>
 </div>
 
+<script>
+    $("#produto").change(function() {
+
+        var id = document.getElementById('produto').value
+        $('#hiddenValor').html('');
+
+        $.ajax({
+
+            type: 'POST', // Formado de envio
+            url: '../ajax/produtoLeads.php', // URL para onde vai ser enviados
+            data: {
+                id: id
+            },
+            success: function(data) {
+                $('#hiddenValor').html(data);
+            }
+
+
+        });
+        return false;
+
+
+    });
+</script>
 
 
 <script>
@@ -142,12 +169,14 @@ if (isset($_POST['salvar_leads'])) {
 
         $('#adicionarCampo').click(function() {
             var produto = document.getElementById('produto').value;
+            var valor_hidder = document.getElementById('valor_hidder').value;
+            console.log(valor_hidder);
             var div = document.getElementById('lista').innerHTML;
-    
+
 
             if (produto != '') {
 
-                div += '<hr> <div class="form-row"><div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div><div class="form-group col-md-3"><label class="form-check-label" for="exampleCheck1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]"></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="desconto[]"></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" name="descricao[]" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div></div>';
+                div += '<hr> <div class="form-row"><div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div><div class="form-group col-md-4"><label for="exampleInputEmail1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + valor_hidder + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="desconto[]"></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" name="descricao[]" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
             } else {
