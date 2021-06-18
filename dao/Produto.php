@@ -23,6 +23,26 @@ Class ProdutoPAO extends Dao{
      $insert->bindValue(":unidade",$ClassProduto->getUnidade());
      $insert->execute();
     }
+
+    public function buscarProduto(){
+
+        $sql = "SELECT * from `crm_tdp` ";
+
+        $select = $this->con->prepare($sql);
+        $select->execute();
+        $array = array();
+        while($row = $select->fetch(PDO::FETCH_ASSOC)){
+
+            $classProduto = new ClassProduto();
+
+            $classProduto->setID($row['CRM_TDP_ID']);
+            $classProduto->setProduto($row['CRM_TDP_PRODUTO']);
+
+            $array[] = $classProduto;
+        }
+           
+            return $array;
+    }
 }
 
 

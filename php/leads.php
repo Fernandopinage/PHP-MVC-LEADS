@@ -1,11 +1,23 @@
 <?php
 
-if (isset($_POST['salvar_leads'])) {
+include_once "../dao/LeadsDAO.php";
+include_once "../class/classParceiro.php";
+include_once "../class/classProduto.php";
+include_once "../dao/Produto.php";
 
-    echo "<pre>";
-    var_dump($_POST['valor']);
-    echo "</pre>";
-}
+
+$empresa = new ClassLeadsDAO();
+$dados = $empresa->buscaEmpresa();
+
+$produto = new ProdutoPAO();
+$prod = $produto->buscarProduto();
+
+    if (isset($_POST['salvar_leads'])) {
+
+        
+
+
+    }
 
 ?>
 
@@ -42,18 +54,17 @@ if (isset($_POST['salvar_leads'])) {
                     <select id="funcao" name="empresa" class="form-control form-control-sm">
                         <option selected></option>
                         <?php
-                        foreach ($dado as $dados) {
+                        foreach ($dados as $dados) {
 
-                            echo "<option value=' . $dados->getId() . '>" . $dados->getDesc() . "</option>";
+                            echo "<option value=' . $dados->getId() . '>" . $dados->getNome() . "</option>";
                         }
-
 
                         ?>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputEmail4" id="email">Email</label>
-                    <input type="text" class="form-control form-control-sm" name="email" id="email" placeholder="">
+                    <label for="inputEmail4" id="email">Consultor</label>
+                    <input type="text" class="form-control form-control-sm" name="consultor" id="consultor" placeholder="">
                 </div>
             </div>
             <div class="form-row">
@@ -63,11 +74,11 @@ if (isset($_POST['salvar_leads'])) {
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputFoto" id="foto">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" id="foto" name="foto" placeholder="">
+                    <input type="text" class="form-control form-control-sm" id="telefone" name="telefone" placeholder="">
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inputFoto" id="foto">Celular</label>
-                    <input type="text" class="form-control form-control-sm" id="foto" name="foto" placeholder="">
+                    <label for="inputFoto" id="celular">Celular</label>
+                    <input type="text" class="form-control form-control-sm" id="celular" name="celular" placeholder="">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputState">Fase da Proposta</label>
@@ -100,16 +111,14 @@ if (isset($_POST['salvar_leads'])) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputState">Produto</label>
-                    <select name="produto" id="produto" class="form-control form-control-sm">
-                        <option selected></option>
-                        <option value="Volvo">Volvo</option>
-                        <option value="Saab">Saab</option>
+                    <select  id="produto" class="form-control form-control-sm">
+                    <option selected></option>
                         <?php
-                        /*
-                        foreach ($dado as $dados) {
+                        foreach ($prod as $prod) {
 
-                            echo "<option value=' . $dados->getDesc() . '>" . $dados->getDesc() . "</option>";
-                        }*/
+                            echo "<option value=' . $prod->getID() . '>" . $prod->getProduto() . "</option>";
+                        }
+
                         ?>
 
                     </select>
@@ -140,7 +149,7 @@ if (isset($_POST['salvar_leads'])) {
 
             if (produto != '') {
 
-                div += '<hr> <div class="form-row"><div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div><div class="form-group col-md-3"><label class="form-check-label" for="exampleCheck1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]"></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="desconto[]"></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div></div>';
+                div += '<hr> <div class="form-row"><div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div><div class="form-group col-md-3"><label class="form-check-label" for="exampleCheck1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1">Valor</label><input type="text" class="form-control form-control-sm" name="valor[]"></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="desconto[]"></div><div class="form-group col-md-4"><div class="form-group"><textarea class="form-control" name="descricao[]" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea></div></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
 
