@@ -96,11 +96,11 @@ if (isset($_POST['salvar_leads'])) {
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputFoto" id="foto">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" id="telefone" name="telefone" placeholder="">
+                    <input type="text" class="form-control form-control-sm" id="telefone" name="telefone" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputFoto" id="celular">Celular</label>
-                    <input type="text" class="form-control form-control-sm" id="celular" name="celular" placeholder="">
+                    <input type="text" class="form-control form-control-sm" id="celular" name="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputState">Fase da Proposta</label>
@@ -233,13 +233,7 @@ if (isset($_POST['salvar_leads'])) {
     });
 </script>
 
-<script>
-    //$("#removerCampo").hide();
 
-    function myFunction() {
-
-    }
-</script>
 
 <script>
     function remover() {

@@ -38,12 +38,12 @@ if(isset($_POST['produto_cadastro'])){
         <div class="tab-pane fade show active" id="nav-produto" role="tabpanel" aria-labelledby="nav-produto-tab">
 
             <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label for="cliente">Produto <spam style="color: red;"><strong>*</strong></spam></label>
                     <input type="text" class="form-control form-control-sm" name="produto" id="produto" placeholder="">
                 </div>
                 <div class="form-group col-md-1">
-                    <label for="cliente">Unidade</label>
+                    <label for="cliente">Unid. Medida</label>
                     <input type="text" class="form-control form-control-sm" name="unidade" id="unidade" placeholder="" value="1">
                 </div>
                 <div class="form-group input-group-sm col-md-2">

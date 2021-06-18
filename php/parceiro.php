@@ -142,7 +142,7 @@ if (isset($_POST['cadastrar'])) {
                 </div>
                 <div class="form-group col-md-4" id="cpf_leads">
                     <label for="inputEmail4" id="CPF-CNPJ">CPF</label>
-                    <input type="text" class="form-control form-control-sm" name="cpf" id="cpf" placeholder="">
+                    <input type="text" class="form-control form-control-sm" onfocus="javascript: retirarFormatacao(this);" onblur="javascript: formatarCampo(this);" name="cpf" id="cpf" placeholder="99.999.999/9999-99">
                 </div>
                 <div class="form-group col-md-3" id="data_funcao">
                     <label for="inputEmail4" id="nascimento-label">Data Nascimento</label>
@@ -168,11 +168,11 @@ if (isset($_POST['cadastrar'])) {
 
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" name="telefone" id="telefone" placeholder="">
+                    <input type="text" class="form-control form-control-sm" name="telefone" id="telefone" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">Celular</label>
-                    <input type="text" class="form-control form-control-sm" name="celular" id="celular" placeholder="">
+                    <input type="text" class="form-control form-control-sm" name="celular" id="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                 </div>
                 <div class="form-group col-md-4" id="leads_naturalidade">
                     <label for="inputEmail4">Naturalidade</label>
@@ -310,7 +310,7 @@ if (isset($_POST['cadastrar'])) {
 
         </div>
         <div class="text-right">
-        <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dadados </button>
+            <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dadados </button>
         </div>
         <!-- **************************************************************************************************** -->
         <script>
@@ -421,6 +421,8 @@ if (isset($_POST['cadastrar'])) {
 
             });
         </script>
+
+      
 
 
 </form>
