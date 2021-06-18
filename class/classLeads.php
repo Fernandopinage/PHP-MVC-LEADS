@@ -9,10 +9,12 @@ Class ClassLeads{
     private $consultor;
     private $endereco;
     private $telefone;
+    private $celular;
     private $fase;
     private $status;
     private $produto;
     private $valor;
+    private $unidade;
     private $desconto;
     private $descricao;
 
@@ -70,6 +72,14 @@ Class ClassLeads{
 
     }
 
+    public function setCelular($celular){
+        $this->celular = $celular;
+
+    }
+    public function getCelular(){
+        return $this->celular;
+
+    }
     public function setFase($fase){
         $this->fase = $fase;
 
@@ -103,6 +113,15 @@ Class ClassLeads{
     }
     public function getValor(){
         return $this->valor;
+
+    }
+
+    public function setUnidade($unidade){
+        $this->unidade = $unidade;
+
+    }
+    public function getUnidade(){
+        return $this->unidade;
 
     }
 
