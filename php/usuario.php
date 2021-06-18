@@ -114,7 +114,7 @@ if (isset($_POST['usuario'])) {
                     <input type="password" class="form-control form-control-sm" name="confsenha" id="confsenha" placeholder="">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputState" id="funcao">Função</label>
+                    <label for="inputState" id="funcao">Cargo</label>
                     <select id="funcao" name="funcao" class="form-control form-control-sm">
                         <option selected></option>
                         <?php
