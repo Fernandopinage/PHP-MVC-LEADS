@@ -121,7 +121,7 @@ if (isset($_POST['salvar_leads'])) {
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputState">Descrição</label>
+                    <label for="inputState">Detalhamento da Proposta</label>
                     <div class="form-group">
                         <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3" placeholder="Descrição"></textarea>
                     </div>

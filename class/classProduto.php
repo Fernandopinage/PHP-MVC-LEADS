@@ -7,8 +7,8 @@ Class ClassProduto{
     private $produto;
     private $unidade;
     private $valor;
-    private $data;
-    private $termino;
+    private $cod;
+    private $status;
     private $descrcao;
 
     public function setID($id)
@@ -50,24 +50,24 @@ Class ClassProduto{
     {
         return $this->valor;
     }
-    public function setDataInicio($data)
+    public function setCodigo($cod)
     {
-        $this->data = $data;
+        $this->cod = $cod;
     }
 
-    public function getDataInicio()
+    public function getCodigo()
     {
-        return $this->data;
+        return $this->cod;
     }
 
-    public function setTermino($termino)
+    public function setStatus($status)
     {
-        $this->termino = $termino;
+        $this->status = $status;
     }
 
-    public function getTermino()
+    public function getStatus()
     {
-        return $this->termino;
+        return $this->status;
     }
     public function setDescricao($descrcao)
     {

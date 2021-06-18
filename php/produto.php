@@ -2,14 +2,14 @@
 include_once "../class/classProduto.php";
 include_once "../dao/Produto.php";
 
-if(isset($_POST['produto_cadastro'])){
+if (isset($_POST['produto_cadastro'])) {
 
     $ClassProduto = new ClassProduto();
     $ClassProduto->setProduto($_POST['produto']);
     $ClassProduto->setUnidade($_POST['unidade']);
     $ClassProduto->setValor($_POST['valor']);
-    $ClassProduto->setDataInicio($_POST['data']);
-    $ClassProduto->setTermino($_POST['termino']);
+    $ClassProduto->setCodigo($_POST['cod']);
+    $ClassProduto->setStatus($_POST['status']);
     $ClassProduto->setDescricao($_POST['descrcao']);
 
     $Produto = new ProdutoPAO();
@@ -38,7 +38,11 @@ if(isset($_POST['produto_cadastro'])){
         <div class="tab-pane fade show active" id="nav-produto" role="tabpanel" aria-labelledby="nav-produto-tab">
 
             <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-2">
+                    <label for="cliente">Código <spam style="color: red;"><strong>*</strong></spam></label>
+                    <input type="text" class="form-control form-control-sm" name="cod" id="cod"  placeholder="">
+                </div>
+                <div class="form-group col-md-5">
                     <label for="cliente">Produto <spam style="color: red;"><strong>*</strong></spam></label>
                     <input type="text" class="form-control form-control-sm" name="produto" id="produto" placeholder="">
                 </div>
@@ -54,12 +58,11 @@ if(isset($_POST['produto_cadastro'])){
                     </div>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="cliente">Dt. Inicio</label>
-                    <input type="date" class="form-control form-control-sm" name="data" id="data" value="<?php echo date('Y-m-d'); ?>" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="cliente">Dt. Término</label>
-                    <input type="date" class="form-control form-control-sm" name="termino" id="termino" placeholder="" value="<?php echo date('Y-m-d'); ?>">
+                    <label for="cliente">Status</label>
+                    <select class="form-control form-control-sm" id="status" name="status">
+                        <option selected value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                    </select>
                 </div>
             </div>
             <div class="form-row">
@@ -74,6 +77,6 @@ if(isset($_POST['produto_cadastro'])){
 </form>
 </div>
 
-<script language="javascript" src="../js/mascara_valor.js">   
-//onKeyPress="return(moeda(this,'.',',',event))   adicionar essa chamda de função no input
- </script> 
+<script language="javascript" src="../js/mascara_valor.js">
+    //onKeyPress="return(moeda(this,'.',',',event))   adicionar essa chamda de função no input
+</script>
