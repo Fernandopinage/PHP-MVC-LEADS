@@ -17,6 +17,8 @@ Class ClassLeads{
     private $unidade;
     private $desconto;
     private $descricao;
+    private $datainicio;
+    private $datafim;
 
     public function setId($id){
         $this->id = $id;
@@ -140,6 +142,24 @@ Class ClassLeads{
     }
     public function getDescricao(){
         return $this->descricao;
+
+    }
+    
+    public function setDatainicio($datainicio){
+        $this->datainicio = $datainicio;
+
+    }
+    public function getDatainicio(){
+        return $this->datainicio;
+
+    }
+
+    public function setDatafim($datafim){
+        $this->datafim = $datafim;
+
+    }
+    public function getDatafim(){
+        return $this->datafim;
 
     }
 } 

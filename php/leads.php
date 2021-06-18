@@ -32,6 +32,8 @@ if (isset($_POST['salvar_leads'])) {
         $Classleads->setUnidade(implode(",",$_POST['unidade']));
     }
     $Classleads->setDescricao($_POST['descricao']);
+    $Classleads->setDatainicio($_POST['data_inicio']);
+    $Classleads->setDatafim($_POST['data_fim']);
 
     $Leads = new ClassLeadsDAO();
     $Leads->insertLeads($Classleads);
