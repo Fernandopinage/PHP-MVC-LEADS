@@ -119,11 +119,8 @@ if (isset($_POST['usuario'])) {
                         <option selected></option>
                         <?php
                         foreach ($dado as $dados) {
-
                             echo "<option value=' . $dados->getId() . '>" . $dados->getDesc() . "</option>";
                         }
-
-
                         ?>
                     </select>
                 </div>
