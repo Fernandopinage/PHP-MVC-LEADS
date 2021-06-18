@@ -30,8 +30,12 @@ if (isset($_POST['salvar_leads'])) {
             <div class="form-row">
 
                 <div class="form-group col-md-4">
-                    <label for="inputEmail4" id="email">Filial</label>
-                    <input type="text" class="form-control form-control-sm" name="filial" id="filial" placeholder="">
+                    <label for="inputState">Filial</label>
+                    <select id="funcao" name="filial" class="form-control form-control-sm">
+                        <option selected value="manaus">Manaus</option>
+                        <option value="sao paulo">São Paulo</option>
+                        <option value="macapa">Macapá</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState" id="empresa">Empresa</label>
@@ -163,9 +167,8 @@ if (isset($_POST['salvar_leads'])) {
 <script>
     function remover() {
         var a =  document.querySelectorAll("input:checked");
-        if(document.querySelectorAll("input:checked") == null){
+        
             console.log(a)
-            $("#lista").hide();
-        }
+
     }
 </script>
