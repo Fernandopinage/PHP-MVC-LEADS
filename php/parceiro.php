@@ -48,6 +48,7 @@ if (isset($_POST['cadastrar'])) {
     $ClassParceiro->setDataexp($_POST['dataexp']);
     $ClassParceiro->setInss($_POST['inss']);
     $ClassParceiro->setPiss($_POST['piss']);
+    $ClassParceiro->setContato($_POST['contato_emp']);
 
     if ($_POST['pessoa'] != 'J') {
         $ClassParceiro->setCnh($_POST['cnh']);
@@ -155,7 +156,11 @@ if (isset($_POST['cadastrar'])) {
                     <label for="inputEmail4">E-mail</label>
                     <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4"  id="contato_emp_leads">
+                    <label for="inputEmail4" id="contato_emp">Contato</label>
+                    <input type="text" class="form-control form-control-sm" name="contato_emp" placeholder="">
+                </div>
+                <div class="form-group col-md-4" id="nacionalidade_leads">
                     <label for="inputEmail4" id="nacionalidade">Nacionalidade</label>
                     <input type="text" class="form-control form-control-sm" name="nacionalidade" id="nacionalidade" placeholder="">
                 </div>
@@ -326,6 +331,7 @@ if (isset($_POST['cadastrar'])) {
                 $('.div-fisico').html('<div class="form-row"> <div class="form-group col-md-4"> <label for="inputEmail4">RG</label> <input type="text" class="form-control form-control-sm" name="rg" id="rg" placeholder=""></div><div class="form-group col-md-4"><label for="inputEmail4">CNH</label><input type="text" class="form-control form-control-sm" name="cnh" id="nome" placeholder=""></div></div>');
                 $('#fantasia-label').hide();
                 $('#fantasia').hide();
+                $('#email').toggleClass('form-control form-control-sm col-md-12');
 
             } else {
 
@@ -352,8 +358,10 @@ if (isset($_POST['cadastrar'])) {
                 $('#data_funcao').hide();
                 $('#div_pessoa').hide();
                 $('.div-juridico').html('');
-
+                $('#contato_emp_leads').show();
+                $('#contato_emp_leads').toggleClass('form-group col-md-3');
                 $('#nome_leads').toggleClass('form-group col-md-8');
+                $('#nacionalidade_leads').hide();
                 // $('#cpf_leads').toggleClass('form-group col-md-6');
                 $('#leads').change(function() {
                     if ($("#leads:checked").val() == undefined) {
@@ -364,9 +372,11 @@ if (isset($_POST['cadastrar'])) {
                         $('#div_pessoa').hide();
                         $('#data_funcao').hide();
                         $('.div-juridico').html('');
-                        $('#nome_leads').toggleClass('form-group col-md-8');
+                        $('#nome_leads').toggleClass('form-group col-md-4');
                         $('#titulo').html('<div>LEADS</div>');
                         $('#label_leads').html('<label>Marque para virar um Parceiro</label>');
+                        $('#contato_emp_leads').show();
+                        $('#contato_emp_leads').toggleClass('form-group col-md-3');
 
                     } else {
                         $("#leads").prop('checked', true);
@@ -379,7 +389,9 @@ if (isset($_POST['cadastrar'])) {
 
                         $('#titulo').html('<div>PARCEIRO</div>');
                         $('#label_leads').html('<labe>Desmarque para virar Leads</label>');
-                        $('#nome_leads').removeClass('form-group col-md-8');
+                        $('#nome_leads').toggleClass('form-group col-md-8');
+                        $('#contato_emp_leads').hide();
+                        $('#contato_emp_leads').toggleClass('form-group col-md-0');
                     }
                 });
 

@@ -40,7 +40,7 @@
         private $suframa = null;
         private $orgao = null;
         private $leads = null;
-
+        private $contato = null;
 
         public function setID($id){
             $this->id = $id;
@@ -348,6 +348,13 @@
 
         public function getLeads (){
             return $this->leads;
+        }
+        public function setContato($contato){
+            $this->contato = $contato;
+        }
+
+        public function getContato (){
+            return $this->contato;
         }
 
     }

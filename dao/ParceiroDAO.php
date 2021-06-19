@@ -57,7 +57,8 @@ include_once "../class/classParceiro.php";
                 `TAB_CAD_EXCLUIDO`, 
                 `TAB_CAD_CELULAR`, 
                 `TAB_CAD_ASSINATURA`,
-                `TAB_CAD_PESSOA`) 
+                `TAB_CAD_PESSOA`,
+                `TAB_CAD_CONTATO`) 
                 VALUES 
                 (
                 null, 
@@ -107,7 +108,8 @@ include_once "../class/classParceiro.php";
                 :excluido, 
                 :celular, 
                 :assinatura,
-                :pessoa) ";   
+                :pessoa,
+                :TAB_CAD_CONTATO)";   
                 
  
             $insert = $this->con->prepare($sql);
@@ -158,7 +160,8 @@ include_once "../class/classParceiro.php";
             $insert->bindValue(":celular", $classParceiro->getCelular());
             $insert->bindValue(":assinatura", '');
             $insert->bindValue(":pessoa", $classParceiro->getLeads());
-            //var_dump($insert);
+            $insert->bindValue(":TAB_CAD_CONTATO", $classParceiro->getContato());
+            #var_dump($insert);
             $insert->execute();
             
 
