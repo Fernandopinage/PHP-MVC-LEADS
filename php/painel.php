@@ -48,6 +48,10 @@
                 include_once "../php/cargo.php";
                 break;
 
+            case 'preco/':
+                include_once "../php/preco.php";
+                break;    
+
             default:
                 # code...
                 break;

@@ -38,7 +38,7 @@ if(isset($_POST['cadastro_funcao'])){
             <input type="type" class="form-control form-control-sm" name="codigo" id="codigo" placeholder="">
         </div>
         <div class="form-group col-md-2">
-            <label for="inputCodigo">Sigle</label>
+            <label for="inputCodigo">Sigla</label>
             <input type="type" class="form-control form-control-sm" name="sigla" id="sigla" placeholder="">
         </div>
         <div class="form-group col-md-8">

@@ -7,10 +7,10 @@ if (isset($_POST['produto_cadastro'])) {
     $ClassProduto = new ClassProduto();
     $ClassProduto->setProduto($_POST['produto']);
     $ClassProduto->setUnidade($_POST['unidade']);
-    $ClassProduto->setValor($_POST['valor']);
+    //$ClassProduto->setValor($_POST['valor']);
     $ClassProduto->setCodigo($_POST['cod']);
     $ClassProduto->setStatus($_POST['status']);
-    $ClassProduto->setDescricao($_POST['descrcao']);
+    //$ClassProduto->setDescricao($_POST['descrcao']);
 
     $Produto = new ProdutoPAO();
     $Produto->insertProduto($ClassProduto);
@@ -42,20 +42,13 @@ if (isset($_POST['produto_cadastro'])) {
                     <label for="cliente">Código <spam style="color: red;"><strong>*</strong></spam></label>
                     <input type="text" class="form-control form-control-sm" name="cod" id="cod"  placeholder="">
                 </div>
-                <div class="form-group col-md-5">
-                    <label for="cliente">Produto <spam style="color: red;"><strong>*</strong></spam></label>
+                <div class="form-group col-md-6">
+                    <label for="cliente">Descrição <spam style="color: red;"><strong>*</strong></spam></label>
                     <input type="text" class="form-control form-control-sm" name="produto" id="produto" placeholder="">
                 </div>
-                <div class="form-group col-md-1">
+                <div class="form-group col-md-2">
                     <label for="cliente">Unid. Medida</label>
-                    <input type="text" class="form-control form-control-sm" name="unidade" id="unidade" placeholder="" value="1">
-                </div>
-                <div class="form-group input-group-sm col-md-2">
-                    <label for="inputEmail4" id="email">Valor</label>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">R$</span>
-                        <input type="text" class="form-control form-control-sm" name="valor" id="valor" onKeyPress="return(moeda(this,'.',',',event))">
-                    </div>
+                    <input type="text" class="form-control form-control-sm" name="unidade" id="unidade" placeholder="" >
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cliente">Status</label>
@@ -63,12 +56,6 @@ if (isset($_POST['produto_cadastro'])) {
                         <option selected value="Ativo">Ativo</option>
                         <option value="Inativo">Inativo</option>
                     </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="exampleFormControlTextarea1">Descrição do Produto</label>
-                    <textarea class="form-control" id="descrcao" name="descrcao" rows="3"></textarea>
                 </div>
             </div>
             <div class="text-right">

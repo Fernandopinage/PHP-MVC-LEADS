@@ -17,9 +17,9 @@ Class ProdutoPAO extends Dao{
      $insert->bindValue(":CRM_TDP_COMPLEMENTO",'');
      $insert->bindValue(":cod",$ClassProduto->getCodigo());
      $insert->bindValue(":statuss",$ClassProduto->getStatus());
-     $insert->bindValue(":descrcao",$ClassProduto->getDescricao());
+     $insert->bindValue(":descrcao",'');
      $insert->bindValue(":produto",$ClassProduto->getProduto());
-     $insert->bindValue(":valor",$ClassProduto->getValor());
+     $insert->bindValue(":valor",'');
      $insert->bindValue(":unidade",$ClassProduto->getUnidade());
      $insert->execute();
     }
