@@ -21,34 +21,15 @@ $prod = $produto->buscarProduto();
 <br>
 
 <form action="" method="POST">
-    <div class="form-row">
-        <div class="form-group col-md-10" id="rowproduto">
-            <label for="inputState">Produto</label>
-            <div class="input-group-prepend">
-                <select id="produto" name="produto[]" class="form-control form-control-sm">
-                    <option selected></option>
-                    <?php
-                    foreach ($prod as $prod) {
-                    ?>
-                        <option value="<?php echo $prod->getProduto(); ?>"><?php echo $prod->getProduto(); ?></option>
-                    <?php
-                    }
-
-                    ?>
-
-                </select>
-                <button class="btn btn-outline-success btn-sm" id="mais" name="mais" type="button">+</button>
-            </div>
-        </div>
-
-    </div>
-    <div class="row" id="lista">
-    </div>
 
     <div class="form-row">
         <div class="form-group col-md-2">
-            <label for="exampleInputEmail1"> Valor Unitário</label>
-            <input type="text" class="form-control form-control-sm" name="valor" value="">
+            <label for="exampleFormControlTextarea1">Código</label>
+            <input class="form-control form-control-sm" name="codigo" id="decodigosc">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleFormControlTextarea1">Descrição</label>
+            <input class="form-control form-control-sm" name="desc" id="desc">
         </div>
         <div class="form-group col-md-2">
             <label for="exampleInputEmail1"> DT. Inicio</label>
@@ -58,24 +39,64 @@ $prod = $produto->buscarProduto();
             <label for="exampleInputEmail1"> DT. Termino</label>
             <input type="date" class="form-control form-control-sm" name="data_termino" value="">
         </div>
-        <div class="form-group col-md-8">
-            <label for="exampleFormControlTextarea1">Descrição</label>
-            <input class="form-control" name="desc" id="desc">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputState">Produto</label>
+
+            <select id="produto" name="produto" class="form-control form-control-sm">
+                <?php
+                foreach ($prod as $prod) {
+                ?>
+                    <option value="<?php echo $prod->getProduto(); ?>"><?php echo $prod->getProduto(); ?></option>
+                <?php
+                }
+
+                ?>
+
+            </select>
+
+        </div>
+
+        <div class="form-group col-md-2">
+
+            <label for="inputState">Valor Unitário</label>
+            <input type="text" class="form-control form-control-sm" name="valor" value="">
+            
+        </div>
+        <div class="form-group col-md-1">
+        <button type="button" class="btn btn-secondary btn-sm" id="mais">+</button>
         </div>
     </div>
 
 
+        <table class="table">
+            <thead>
+                <tr>
 
-    <div class=text-right>
-        <button type="submit" class="btn btn-success" name="cadastro_funcao">Cadastro Função</button>
-    </div>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Valor Unitário</th>
+                </tr>
+            </thead>
+            <tbody id="lista">
+
+
+            </tbody>
+        </table>
+        <div class=text-right>
+            <button type="submit" class="btn btn-success" name="cadastro_funcao">Cadastro Função</button>
+        </div>
 </form>
 
 <script>
-   var div = $(this.rowproduto).clone(true);
-   
-    $('#mais').click(function() {
+    // var div = $(this.rowproduto).clone(true);
 
-        $('#lista').append(div);
+
+
+    $('#mais').click(function() {
+        var produto = document.getElementById('produto').options[document.getElementById('produto').selectedIndex].innerText;
+
+        $('#lista').append('<tr><td><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" ></td><td><input type="text" class="form-control form-control-sm" name="valor[]" value=""></td></tr>')
+
     });
 </script>
