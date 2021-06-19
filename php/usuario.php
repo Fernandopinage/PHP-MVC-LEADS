@@ -54,13 +54,15 @@ if (isset($_POST['usuario'])) {
 
 <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-        <p class="text-white bg-secondary text-center">DADOS DO USUÁRIO</p>
+        <p class="text-white bg-secondary text-center">DADOS DO USUÁRIO</p><br>
+        <!--
         <div class="text-right">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             <img src="../img/outline_add_white_24dp.png"> Nova Função
             </button>
 
         </div>
+        -->
         <div>
             <?php
             if (!empty($_SESSION['danger'])) {

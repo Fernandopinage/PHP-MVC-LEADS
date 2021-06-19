@@ -44,6 +44,10 @@
             case 'produto/':
                 include_once "../php/produto.php";
                 break;
+            case 'cargo/':
+                include_once "../php/cargo.php";
+                break;
+
             default:
                 # code...
                 break;

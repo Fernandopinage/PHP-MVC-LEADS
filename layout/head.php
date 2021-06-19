@@ -30,6 +30,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="?page=parceiro/">Parceiros</a>
                         <a class="dropdown-item" href="?page=produto/">Produtos</a>
+                        <a class="dropdown-item" href="?page=cargo/">Cargo</a>
                        <!-- <a class="dropdown-item" href="?page=colaborador/">Colaborador</a> -->
                        <!-- <a class="dropdown-item" href="?page=contrato/">Negócios</a> -->
                         <a class="dropdown-item" href="?page=usuario/">Usuário</a>
