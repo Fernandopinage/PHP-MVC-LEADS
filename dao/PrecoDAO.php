@@ -19,6 +19,27 @@ Class PrecoDAO extends DAO{
         $insert->bindValue(':TAB_TPP_VALOR',$ClassPreco->getValor());
         $insert->execute();
     }
+
+
+    public function buscaPreco(){
+        
+        $sql = "SELECT * from `crm_tdp` ";
+
+        $select = $this->con->prepare($sql);
+        $select->execute();
+        $array = array();
+        while($row = $select->fetch(PDO::FETCH_ASSOC)){
+
+            $classPreco = new ClassPreco();
+
+            $classPreco->setID($row['CRM_TDP_ID']);
+            $classPreco->setProduto($row['CRM_TDP_PRODUTO']);
+            $classPreco->setValor($row['CRM_TDP_VALOR']);
+            $array[] = $classPreco;
+        }
+           
+            return $array;
+    }
 }
 
 ?>

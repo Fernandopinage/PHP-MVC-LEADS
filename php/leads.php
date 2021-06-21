@@ -6,12 +6,17 @@ include_once "../class/classProduto.php";
 include_once "../dao/Produto.php";
 include_once "../class/classLeads.php";
 
+include_once "../dao/PrecoDAO.php";
+
 
 $empresa = new ClassLeadsDAO();
 $dados = $empresa->buscaEmpresa();
 
-$produto = new ProdutoPAO();
-$prod = $produto->buscarProduto();
+
+
+$produto = new PrecoDAO();
+$prod = $produto->buscaPreco();
+
 
 if (isset($_POST['salvar_leads'])) {
 
@@ -162,6 +167,7 @@ if (isset($_POST['salvar_leads'])) {
 
                     </select>
                 </div>
+
                 <div class="form-group col-md-2">
                     <div id="hiddenValor">
                     </div>
