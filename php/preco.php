@@ -61,42 +61,52 @@ $prod = $produto->buscarProduto();
         <div class="form-group col-md-2">
 
             <label for="inputState">Valor Unitário</label>
-            <input type="text" class="form-control form-control-sm" name="valor" value="">
-            
+            <input type="text" class="form-control form-control-sm" id="valor" name="valor" value="">
+
         </div>
-        <div class="form-group col-md-1">
-        <button type="button" class="btn btn-secondary btn-sm" id="mais">+</button>
+        <div class="form-group col-md-2">
+            <button type="button" class="btn btn-primary btn-sm" id="mais" style="margin-top: 25px;">+</button>
+
         </div>
     </div>
 
 
-        <table class="table">
-            <thead>
-                <tr>
+    <table class="table">
+        <thead>
+            <tr>
 
-                    <th scope="col">Produto</th>
-                    <th scope="col">Valor Unitário</th>
-                </tr>
-            </thead>
-            <tbody id="lista">
+                <th scope="col" width='500'>Produto</th>
+                <th scope="col" width='300'>Valor Unitário</th>
+                <th scope="col" width='500'>Remover</th>
+            </tr>
+        </thead>
+        <tbody id="lista">
 
 
-            </tbody>
-        </table>
-        <div class=text-right>
-            <button type="submit" class="btn btn-success" name="cadastro_funcao">Cadastro Função</button>
-        </div>
+        </tbody>
+    </table>
+    <div class=text-right>
+        <button type="submit" class="btn btn-success" name="cadastro_funcao">Cadastro Função</button>
+    </div>
 </form>
 
 <script>
-    // var div = $(this.rowproduto).clone(true);
-
-
+     var cont = 1;
 
     $('#mais').click(function() {
         var produto = document.getElementById('produto').options[document.getElementById('produto').selectedIndex].innerText;
+        var unidario = document.getElementById('valor').value;
+        $('#lista').append('<tr id="campo'+ cont +'" class="btn-remover"><td> <input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></td><td> <input type="text" class="form-control form-control-sm"  name="valor[]" value="' + unidario + '" readonly></td><td> <a class="btn btn-danger"  id="'+ cont +'" style="color: #fff;"> - </a>  </td></tr>')
 
-        $('#lista').append('<tr><td><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" ></td><td><input type="text" class="form-control form-control-sm" name="valor[]" value=""></td></tr>')
+        var produto = document.getElementById('produto').value='';
+        var unidario = document.getElementById('valor').value='';
+    });
 
+   
+
+    $("form").on("click", ".btn-danger", function() {
+
+            var btn_id = $(this).attr("id");
+            $('#campo'+ btn_id +'' ).remove();
     });
 </script>
