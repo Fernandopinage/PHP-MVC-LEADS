@@ -16,14 +16,14 @@ Class PrecoDAO extends DAO{
         $insert->bindValue(':TAB_TPP_DATA',$ClassPreco->getData());
         $insert->bindValue(':TAB_TPP_TERMINO',$ClassPreco->getTermino());
         $insert->bindValue(':TAB_TPP_PRODUTO',$ClassPreco->getProduto());
-        $insert->bindValue(':TAB_TPP_VALOR',$ClassPreco->getValor());
+        $insert->bindValue(':TAB_TPP_VALOR',$ClassPreco->getValor());  
         $insert->execute();
     }
 
 
     public function buscaPreco(){
         
-        $sql = "SELECT * from `crm_tdp` ";
+        $sql = "SELECT * from `TAB_TPP` ";
 
         $select = $this->con->prepare($sql);
         $select->execute();
@@ -32,9 +32,9 @@ Class PrecoDAO extends DAO{
 
             $classPreco = new ClassPreco();
 
-            $classPreco->setID($row['CRM_TDP_ID']);
-            $classPreco->setProduto($row['CRM_TDP_PRODUTO']);
-            $classPreco->setValor($row['CRM_TDP_VALOR']);
+            $classPreco->setID($row['TAB_TPP_ID']);
+            $classPreco->setDesc($row['TAB_TPP_DESC']);
+            $classPreco->setValor($row['TAB_TPP_VALOR']);
             $array[] = $classPreco;
         }
            

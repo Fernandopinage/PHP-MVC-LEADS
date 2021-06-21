@@ -159,7 +159,7 @@ if (isset($_POST['salvar_leads'])) {
                         <?php
                         foreach ($prod as $prod) {
                         ?>
-                            <option value="<?php echo $prod->getProduto(); ?>"><?php echo $prod->getProduto(); ?></option>
+                            <option value="<?php echo $prod->getDesc(); ?>"><?php echo $prod->getDesc(); ?></option>
                         <?php
                         }
 
