@@ -61,16 +61,16 @@ $prod = $produto->buscarProduto();
         <div class="form-group col-md-2">
 
             <label for="inputState">Valor Unitário</label>
-            <input type="text" class="form-control form-control-sm" id="valor" name="valor" value="">
+            <input type="text" class="form-control form-control-sm" id="valor" onKeyPress="return(moeda(this,'.',',',event))" name="valor" value="">
 
         </div>
         <div class="form-group col-md-2">
-            <button type="button" class="btn btn-primary btn-sm" id="mais" style="margin-top: 25px;">+</button>
+            <button type="button" class="btn btn-primary btn-sm" id="mais" style="margin-top: 28px;">+</button>
 
         </div>
     </div>
 
-
+    <p class="text-white bg-secondary text-center" style="margin-top: 10px;">ADICIONAR PRODUTOS</p>
     <table class="table">
         <thead>
             <tr>
@@ -90,6 +90,7 @@ $prod = $produto->buscarProduto();
     </div>
 </form>
 
+<script src="../js/mascara_valor.js"> </script>
 <script>
      var cont = 1;
 
