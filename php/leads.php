@@ -32,9 +32,9 @@ if (isset($_POST['salvar_leads'])) {
 
     if (isset($_POST['produto'])) {
 
-        $Classleads->setProduto(implode(",",$_POST['produto']));
-        $Classleads->setValor(implode(",",$_POST['valor']));
-        $Classleads->setUnidade(implode(",",$_POST['unidade']));
+        $Classleads->setProduto(implode(",", $_POST['produto']));
+        $Classleads->setValor(implode(",", $_POST['valor']));
+        $Classleads->setUnidade(implode(",", $_POST['unidade']));
     }
     $Classleads->setDescricao($_POST['descricao']);
     $Classleads->setDatainicio($_POST['data_inicio']);
@@ -42,7 +42,6 @@ if (isset($_POST['salvar_leads'])) {
 
     $Leads = new ClassLeadsDAO();
     $Leads->insertLeads($Classleads);
-    
 }
 
 ?>
@@ -50,7 +49,7 @@ if (isset($_POST['salvar_leads'])) {
 <br><br>
 <div class="card" style="margin-bottom: 20px;">
     <div class="navbar navbar-dark bg-dark navbar-expand-lg" style=" color:#fff; ">
-        LEADS
+        PROPOSTA
     </div>
 </div>
 <nav>
@@ -82,7 +81,7 @@ if (isset($_POST['salvar_leads'])) {
                         <?php
                         foreach ($dados as $dados) {
                         ?>
-                            <option value="<?php echo $dados->getNome()?>"><?php echo $dados->getNome() ?></option>
+                            <option value="<?php echo $dados->getNome() ?>"><?php echo $dados->getNome() ?></option>
                         <?php
                         }
 
@@ -133,7 +132,7 @@ if (isset($_POST['salvar_leads'])) {
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputEmail4" id="email">DT. Inicio</label>
-                    <input type="date" class="form-control form-control-sm" name="data_inicio" id="data_inicio" value="<?php echo date('Y-m-d');?>" placeholder="">
+                    <input type="date" class="form-control form-control-sm" name="data_inicio" id="data_inicio" value="<?php echo date('Y-m-d'); ?>" placeholder="">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputEmail4" id="email">DT. Termino</label>
@@ -191,6 +190,7 @@ if (isset($_POST['salvar_leads'])) {
     $("#produto").change(function() {
 
         var id = document.getElementById('produto').value
+       console.log(id)
         $('#hiddenValor').html('');
 
         $.ajax({
@@ -218,14 +218,14 @@ if (isset($_POST['salvar_leads'])) {
 
         $('#adicionarCampo').click(function() {
             var produto = document.getElementById('produto').value;
-            var valor_hidder = document.getElementById('valor_hidder').value;
+            var produtos = document.getElementById('valor_hidder').value;
             var div = document.getElementById('lista').innerHTML;
 
 
             if (produto != '') {
 
                 //<div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div>
-                div += '<hr> <div class="form-row"><div class="form-group col-md-4"><label for="exampleInputEmail1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-2"><label for="exampleInputEmail1"> Valor Unitário</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + valor_hidder + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
+                div += '<hr> <div class="form-row"><div class="form-group col-md-4"><label for="exampleInputEmail1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-4"><label for="exampleInputEmail1"> Produtos</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + produtos + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
             } else {
