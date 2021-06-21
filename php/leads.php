@@ -217,7 +217,8 @@ if (isset($_POST['salvar_leads'])) {
     $(document).ready(function() {
 
         $('#adicionarCampo').click(function() {
-            var produto = document.getElementById('produto').value;
+            var id = document.getElementById('id_hidder').value;
+            var descricao = document.getElementById('produto').value;
             var produtos = document.getElementById('valor_hidder').value;
             var div = document.getElementById('lista').innerHTML;
 
@@ -225,7 +226,7 @@ if (isset($_POST['salvar_leads'])) {
             if (produto != '') {
 
                 //<div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div>
-                div += '<hr> <div class="form-row"><div class="form-group col-md-4"><label for="exampleInputEmail1">Produto</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></div><div class="form-group col-md-4"><label for="exampleInputEmail1"> Produtos</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + produtos + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
+                div += '<hr> <div class="form-row"><div class="form-group col-md-1"><label for="exampleInputEmail1">Código</label><input type="text" class="form-control form-control-sm" name="id[]" value="'+id+'" readonly></div><div class="form-group col-md-4"><label for="exampleInputEmail1">Descrição</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + descricao + '" readonly></div><div class="form-group col-md-4"><label for="exampleInputEmail1"> Produtos</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + produtos + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
                 document.getElementById('lista').innerHTML = div;
 
             } else {

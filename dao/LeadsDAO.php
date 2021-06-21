@@ -60,6 +60,7 @@ Class ClassLeadsDAO extends Dao{
         
         if ($row = $select->fetch(PDO::FETCH_ASSOC)) {
             ?>
+            <input type="hidden" id="id_hidder" class="form-control form-control-sm" value="<?php echo $row['TAB_TPP_ID'] ?>">
             <input type="hidden" id="valor_hidder" class="form-control form-control-sm" value="<?php echo $row['TAB_TPP_PRODUTO'] ?>">
             <?php
         }
