@@ -54,13 +54,13 @@ Class ClassLeadsDAO extends Dao{
     
     public function valorProduto($id){
 
-        $sql = "SELECT * FROM `crm_tdp`  where CRM_TDP_PRODUTO='$id'";
+        $sql = "SELECT * FROM `TAB_TPP`  where TAB_TPP_PRODUTO='$id'";
         $select = $this->con->prepare($sql);
         $select->execute();
         
         if ($row = $select->fetch(PDO::FETCH_ASSOC)) {
             ?>
-            <input type="hidden" id="valor_hidder" class="form-control form-control-sm" value="<?php echo $row['CRM_TDP_VALOR'] ?>">
+            <input type="hidden" id="valor_hidder" class="form-control form-control-sm" value="<?php echo $row['TAB_TPP_VALOR'] ?>">
             <?php
         }else{
             echo "00,00";
