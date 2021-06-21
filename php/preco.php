@@ -1,8 +1,29 @@
 <?php
 include_once "../class/classProduto.php";
 include_once "../dao/Produto.php";
+include "../dao/PrecoDAO.php";
+
 $produto = new ProdutoPAO();
 $prod = $produto->buscarProduto();
+
+if (isset($_POST['cadastro_preco'])) {
+
+    $ClassPreco = new ClassPreco();
+
+    $ClassPreco->setCod($_POST['codigo']);
+    $ClassPreco->setDesc($_POST['desc']);
+    $ClassPreco->setData($_POST['data_inicio']);
+    $ClassPreco->setTermino($_POST['data_termino']);
+    if (isset($_POST['produto'])) {
+        $ClassPreco->setProduto(implode(",",$_POST['produto']));
+        $ClassPreco->setValor(implode(",",$_POST['valor']));
+    }
+
+    $Preco = new PrecoDAO();
+    $Preco->insertPreco($ClassPreco);
+
+ 
+}
 
 ?>
 
@@ -44,7 +65,8 @@ $prod = $produto->buscarProduto();
         <div class="form-group col-md-4">
             <label for="inputState">Produto</label>
 
-            <select id="produto" name="produto" class="form-control form-control-sm">
+            <select id="produto" class="form-control form-control-sm">
+                <option></option>
                 <?php
                 foreach ($prod as $prod) {
                 ?>
@@ -61,7 +83,7 @@ $prod = $produto->buscarProduto();
         <div class="form-group col-md-2">
 
             <label for="inputState">Valor Unitário</label>
-            <input type="text" class="form-control form-control-sm" id="valor" onKeyPress="return(moeda(this,'.',',',event))" name="valor" value="">
+            <input type="text" class="form-control form-control-sm" id="valor" onKeyPress="return(moeda(this,'.',',',event))" value="">
 
         </div>
         <div class="form-group col-md-2">
@@ -86,28 +108,28 @@ $prod = $produto->buscarProduto();
         </tbody>
     </table>
     <div class=text-right>
-        <button type="submit" class="btn btn-success" name="cadastro_funcao">Cadastro Função</button>
+        <button type="submit" class="btn btn-success" name="cadastro_preco">Cadastro Preço</button>
     </div>
 </form>
 
 <script src="../js/mascara_valor.js"> </script>
 <script>
-     var cont = 1;
+    var cont = 1;
 
     $('#mais').click(function() {
         var produto = document.getElementById('produto').options[document.getElementById('produto').selectedIndex].innerText;
         var unidario = document.getElementById('valor').value;
-        $('#lista').append('<tr id="campo'+ cont +'" class="btn-remover"><td> <input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></td><td> <input type="text" class="form-control form-control-sm"  name="valor[]" value="' + unidario + '" readonly></td><td> <a class="btn btn-danger"  id="'+ cont +'" style="color: #fff;"> - </a>  </td></tr>')
+        $('#lista').append('<tr id="campo' + cont + '" class="btn-remover"><td> <input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></td><td> <input type="text" class="form-control form-control-sm"  name="valor[]" value="' + unidario + '" readonly></td><td> <a class="btn btn-danger"  id="' + cont + '" style="color: #fff;"> - </a>  </td></tr>')
 
-        var produto = document.getElementById('produto').value='';
-        var unidario = document.getElementById('valor').value='';
+        var produto = document.getElementById('produto').value = '';
+        var unidario = document.getElementById('valor').value = '';
     });
 
-   
+
 
     $("form").on("click", ".btn-danger", function() {
 
-            var btn_id = $(this).attr("id");
-            $('#campo'+ btn_id +'' ).remove();
+        var btn_id = $(this).attr("id");
+        $('#campo' + btn_id + '').remove();
     });
 </script>
