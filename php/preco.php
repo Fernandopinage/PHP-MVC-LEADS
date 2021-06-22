@@ -15,8 +15,8 @@ if (isset($_POST['cadastro_preco'])) {
     $ClassPreco->setData($_POST['data_inicio']);
     $ClassPreco->setTermino($_POST['data_termino']);
     if (isset($_POST['produto'])) {
-        $ClassPreco->setProduto(implode(",",$_POST['produto']));
-        $ClassPreco->setValor(implode(",",$_POST['valor']));
+        $ClassPreco->setProduto(implode(",", $_POST['produto']));
+        $ClassPreco->setValor(implode(",", $_POST['valor']));
     }
 
     $Preco = new PrecoDAO();
@@ -39,7 +39,7 @@ if (isset($_POST['cadastro_preco'])) {
 </div>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color: #FF7F00;">Cadastro</a>
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color: #000;">Cadastro</a>
 
     </div>
 </nav>
@@ -111,6 +111,10 @@ if (isset($_POST['cadastro_preco'])) {
 
         </tbody>
     </table>
+    <div class="form-group col-md-2">
+        <label for="exampleInputEmail1"> Total Saldo</label>
+        <input type="teste" class="form-control form-control-sm" id="total" name="total" value="" readonly>
+    </div>
     <div class=text-right>
         <button type="submit" class="btn btn-success" name="cadastro_preco">Cadastro Preço</button>
     </div>
@@ -119,16 +123,27 @@ if (isset($_POST['cadastro_preco'])) {
 <script src="../js/mascara_valor.js"> </script>
 <script>
     var cont = 1;
-
+    var somar;
+    var uni = document.getElementById('valor').value;
+    var result = document.getElementById('total').value;
+    
     $('#mais').click(function() {
-        var produto = document.getElementById('produto').options[document.getElementById('produto').selectedIndex].innerText;
         var unidario = document.getElementById('valor').value;
+        var total = document.getElementById('total').value;
+        var produto = document.getElementById('produto').options[document.getElementById('produto').selectedIndex].innerText;
+
         $('#lista').append('<tr id="campo' + cont + '" class="btn-remover"><td> <input type="text" class="form-control form-control-sm" name="produto[]" value="' + produto + '" readonly></td><td> <input type="text" class="form-control form-control-sm"  name="valor[]" value="' + unidario + '" readonly></td><td> <a class="btn btn-danger"  id="' + cont + '" style="color: #fff;"> - </a>  </td></tr>')
 
+        
+        
         var produto = document.getElementById('produto').value = '';
         var unidario = document.getElementById('valor').value = '';
     });
+    
+        somar = (result + uni);
 
+         total = document.getElementById('total').value = somar;
+            console.log(somar)
 
 
     $("form").on("click", ".btn-danger", function() {
