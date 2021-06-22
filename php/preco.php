@@ -22,11 +22,6 @@ if (isset($_POST['cadastro_preco'])) {
     $Preco = new PrecoDAO();
     $Preco->insertPreco($ClassPreco);
 
-    /*
-    echo "<pre>";
-    var_dump($ClassPreco);
-    echo "</pre>";
-    */
 }
 
 ?>
