@@ -8,19 +8,19 @@ Class ProdutoPAO extends Dao{
     public function insertProduto(ClassProduto  $ClassProduto){
 
 
-     $sql = "INSERT INTO `crm_tdp`(`CRM_TDP_ID`, `CRM_TDP_BLOQ`, `CRM_TDP_EXCLUIDO`, `CRM_TDP_IDEMP`, `CRM_TDP_COMPLEMENTO`, `CRM_TDP_COD`, `CRM_TDP_STATUS`, `CRM_TDP_DESCRICAO`, `CRM_TDP_PRODUTO`, `CRM_TDP_VALOR`, `CRM_TDP_UNIDADE`) 
-     VALUES (null, :CRM_TDP_BLOQ, :CRM_TDP_EXCLUIDO, :CRM_TDP_IDEMP, :CRM_TDP_COMPLEMENTO, :cod, :statuss, :descrcao, :produto, :valor, :unidade)";
+     $sql = "INSERT INTO `crm_tdp`(`CRM_TDP_ID`, `CRM_TDP_COD`, `CRM_TDP_PRODUTO`, `CRM_TDP_REFERENTE`, `CRM_TDP_TIPO`, `CRM_TDP_CATEGORIA`, `CRM_TDP_CARACTERISTICA`, `CRM_TDP_CUSTO`, `CRM_TDP_VENDA`, `CRM_TDP_DESCRICAO`, `CRM_TDP_COMISSAO`) 
+     VALUES (null, :CRM_TDP_COD, :CRM_TDP_PRODUTO, :CRM_TDP_REFERENTE, :CRM_TDP_TIPO, :CRM_TDP_CATEGORIA, :CRM_TDP_CARACTERISTICA, :CRM_TDP_CUSTO, :CRM_TDP_VENDA, :CRM_TDP_DESCRICAO, :CRM_TDP_COMISSAO)";
      $insert = $this->con->prepare($sql);
-     $insert->bindValue(":CRM_TDP_BLOQ",'');
-     $insert->bindValue(":CRM_TDP_EXCLUIDO",'');
-     $insert->bindValue(":CRM_TDP_IDEMP",'');
-     $insert->bindValue(":CRM_TDP_COMPLEMENTO",'');
-     $insert->bindValue(":cod",$ClassProduto->getCodigo());
-     $insert->bindValue(":statuss",$ClassProduto->getStatus());
-     $insert->bindValue(":descrcao",'');
-     $insert->bindValue(":produto",$ClassProduto->getProduto());
-     $insert->bindValue(":valor",'');
-     $insert->bindValue(":unidade",$ClassProduto->getUnidade());
+     $insert->bindValue(":CRM_TDP_COD", $ClassProduto->getCod());  
+     $insert->bindValue(":CRM_TDP_PRODUTO", $ClassProduto->getProduto());   
+     $insert->bindValue(":CRM_TDP_REFERENTE", $ClassProduto->getReferencia());  
+     $insert->bindValue(":CRM_TDP_TIPO", $ClassProduto->getTipo());   
+     $insert->bindValue(":CRM_TDP_CATEGORIA", $ClassProduto->getCategoria());  
+     $insert->bindValue(":CRM_TDP_CARACTERISTICA", $ClassProduto->getCaracteristica());   
+     $insert->bindValue(":CRM_TDP_CUSTO", $ClassProduto->getCusto());  
+     $insert->bindValue(":CRM_TDP_VENDA", $ClassProduto->getVenda()); 
+     $insert->bindValue(":CRM_TDP_DESCRICAO", $ClassProduto->getDesc());  
+     $insert->bindValue(":CRM_TDP_COMISSAO", $ClassProduto->getComissao());
      $insert->execute();
     }
 

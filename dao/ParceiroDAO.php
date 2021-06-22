@@ -159,7 +159,8 @@ include_once "../class/classParceiro.php";
             $insert->bindValue(":excluido", '');
             $insert->bindValue(":celular", $classParceiro->getCelular());
             $insert->bindValue(":assinatura", '');
-            $insert->bindValue(":pessoa", $classParceiro->getLeads());
+
+            $insert->bindValue(":pessoa", '');
             $insert->bindValue(":TAB_CAD_CONTATO", $classParceiro->getContato());
             #var_dump($insert);
             $insert->execute();

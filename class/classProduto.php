@@ -4,12 +4,16 @@
 Class ClassProduto{
 
     private $id;
-    private $produto;
-    private $unidade;
-    private $valor;
     private $cod;
-    private $status;
-    private $descrcao;
+    private $produto;
+    private $referencia;
+    private $tipo;
+    private $categoria;
+    private $caracteristica;
+    private $custo;
+    private $venda;
+    private $desc;
+    private $comissao;
 
     public function setID($id)
     {
@@ -19,6 +23,16 @@ Class ClassProduto{
     public function getID()
     {
         return $this->id;
+    }
+
+    public function setCod($cod)
+    {
+        $this->cod = $cod;
+    }
+
+    public function getCod()
+    {
+        return $this->cod;
     }
 
     public function setProduto($produto)
@@ -31,52 +45,84 @@ Class ClassProduto{
         return $this->produto;
     }
 
-    public function setUnidade($unidade)
+    public function setReferencia($referencia)
     {
-        $this->unidade = $unidade;
+        $this->referencia = $referencia;
     }
 
-    public function getUnidade()
+    public function getReferencia()
     {
-        return $this->unidade;
+        return $this->referencia;
     }
 
-    public function setValor($valor)
+    public function setTipo($tipo)
     {
-        $this->valor = $valor;
+        $this->tipo = $tipo;
     }
 
-    public function getValor()
+    public function getTipo()
     {
-        return $this->valor;
-    }
-    public function setCodigo($cod)
-    {
-        $this->cod = $cod;
+        return $this->tipo;
     }
 
-    public function getCodigo()
+    public function setCategoria($categoria)
     {
-        return $this->cod;
+        $this->categoria = $categoria;
     }
 
-    public function setStatus($status)
+    public function getCategoria()
     {
-        $this->status = $status;
+        return $this->categoria;
     }
 
-    public function getStatus()
+    public function setCaracteristica($caracteristica)
     {
-        return $this->status;
-    }
-    public function setDescricao($descrcao)
-    {
-        $this->descrcao = $descrcao;
+        $this->caracteristica = $caracteristica;
     }
 
-    public function getDescricao()
+    public function getCaracteristica()
     {
-        return $this->descrcao;
+        return $this->caracteristica;
+    }
+    
+    public function setCusto($custo)
+    {
+        $this->custo = $custo;
+    }
+
+    public function getCusto()
+    {
+        return $this->custo;
+    }
+
+    public function setVenda($venda)
+    {
+        $this->venda = $venda;
+    }
+
+    public function getVenda()
+    {
+        return $this->venda;
+    }
+    
+    public function setDesc($desc)
+    {
+        $this->desc = $desc;
+    }
+
+    public function getDesc()
+    {
+        return $this->desc;
+    }
+
+    public function setComissao($comissao)
+    {
+        $this->comissao = $comissao;
+    }
+
+    public function getComissao()
+    {
+        return $this->comissao;
     }
 }
 

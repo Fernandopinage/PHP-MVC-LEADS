@@ -12,15 +12,14 @@ if (isset($_POST['cadastrar'])) {
 
     $ClassParceiro = new ClassParceiro();
 
-    if (!empty($_POST['leads'])) {
 
-        $ClassParceiro->setLeads($_POST['leads']);
-        $ClassParceiro->setPessoa($_POST['pessoa']);
-        $ClassParceiro->setOpcao($_POST['option']);
-        $ClassParceiro->setSuframa($_POST['suframa']);
-        $ClassParceiro->setEstadual($_POST['estadual']);
-        $ClassParceiro->setMunicipal($_POST['municipal']);
-    }
+
+
+    $ClassParceiro->setPessoa($_POST['pessoa']);
+    $ClassParceiro->setOpcao($_POST['option']);
+    $ClassParceiro->setSuframa($_POST['suframa']);
+    $ClassParceiro->setEstadual($_POST['estadual']);
+    $ClassParceiro->setMunicipal($_POST['municipal']);
     $ClassParceiro->setNome($_POST['nome']);
     $ClassParceiro->setCpf($_POST['cpf']);
     $ClassParceiro->setDatanasc($_POST['datanasc']);
@@ -55,8 +54,6 @@ if (isset($_POST['cadastrar'])) {
         $ClassParceiro->setRg($_POST['rg']);
     }
 
-
-
     $Parceiro = new ParceiroDao();
     $Parceiro->insert($ClassParceiro);
 }
@@ -73,7 +70,7 @@ if (isset($_POST['cadastrar'])) {
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="color: #000;">Cadastro</a>
-        <a class="nav-item nav-link" id="nav-atividade-tab" data-toggle="tab" href="#nav-atividade" role="tab" aria-controls="nav-atividade" aria-selected="false" style="color: #000;">Atividade</a>
+        <!--<a class="nav-item nav-link" id="nav-atividade-tab" data-toggle="tab" href="#nav-atividade" role="tab" aria-controls="nav-atividade" aria-selected="false" style="color: #000;">Atividade</a>-->
         <a class="nav-item nav-link" id="nav-endereco-tab" data-toggle="tab" href="#nav-endereco" role="tab" aria-controls="nav-endereco" aria-selected="false" style="color: #000;">Endereço</a>
         <a class="nav-item nav-link" id="nav-outro-tab" data-toggle="tab" href="#nav-outro" role="tab" aria-controls="nav-outro" aria-selected="false" style="color: #000;">Outros</a>
 
@@ -87,15 +84,6 @@ if (isset($_POST['cadastrar'])) {
         <!-- ******************************* Cadastro ***************************************************-->
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <p class="text-white bg-secondary text-center">DADOS PESSOAIS</p>
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" value="1" name="leads" id="leads">
-                        <label class="form-check-label" for="exampleCheck1" id="label_leads">Parceiro</label>
-                    </div>
-                </div>
-            </div>
 
             <div class="form-row" id="div_pessoa">
                 <div class="form-group col-md-4">
@@ -114,36 +102,23 @@ if (isset($_POST['cadastrar'])) {
                     </div>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputEmail4" id="option">Tipo Cadastro</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="option" id="exampleRadios1" value="fornecedor">
-                        <label class="form-check-label" for="exampleRadios1">
-                            Fornecedor
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="cliente">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Cliente
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="option" id="exampleRadios2" value="ambos" CHECKED>
-                        <label class="form-check-label" for="exampleRadios2">
-                            Ambos For/CLi
-                        </label>
-                    </div>
+                    <label for="exampleFormControlSelect1">Categoria</label>
+                    <select class="form-control form-control-sm" name="option" id="option">
+                        <option value="pontecial">Cliente Potencial</option>
+                        <option value="base">Cliente da Base</option>
+                        <option value="pedido">Cliente Pedido</option>
+                    </select>
                 </div>
 
             </div>
             <div class="form-row">
-                <div class="form-group col-md-5" id="nome_leads">
-                    <label for="inputEmail4" id="nome">Nome Completo</label>
-                    <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
-                </div>
-                <div class="form-group col-md-4" id="cpf_leads">
+                <div class="form-group col-md-3" id="cpf_leads">
                     <label for="inputEmail4" id="CPF-CNPJ">CPF</label>
                     <input type="text" class="form-control form-control-sm" onfocus="javascript: retirarFormatacao(this);" onblur="javascript: formatarCampo(this);" name="cpf" id="cpf" placeholder="99.999.999/9999-99">
+                </div>
+                <div class="form-group col-md-6" id="nome_leads">
+                    <label for="inputEmail4" id="nome">Nome Completo</label>
+                    <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
                 </div>
                 <div class="form-group col-md-3" id="data_funcao">
                     <label for="inputEmail4" id="nascimento-label">Data Nascimento</label>
@@ -151,33 +126,34 @@ if (isset($_POST['cadastrar'])) {
                 </div>
 
             </div>
+
             <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4" id="fantasia">
+                    <label for="inputEmail4">Nome Fantasia</label>
+                    <input type="text" class="form-control form-control-sm" name="fantasia" id="fantasia" placeholder="">
+                </div>
+                <div class="form-group col-md-4">
                     <label for="inputEmail4">E-mail</label>
                     <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="">
                 </div>
-                <div class="form-group col-md-4"  id="contato_emp_leads">
+                <div class="form-group col-md-4" id="contato_emp_leads">
                     <label for="inputEmail4" id="contato_emp">Contato</label>
                     <input type="text" class="form-control form-control-sm" name="contato_emp" placeholder="">
-                </div>
-                <div class="form-group col-md-4" id="nacionalidade_leads">
-                    <label for="inputEmail4" id="nacionalidade">Nacionalidade</label>
-                    <input type="text" class="form-control form-control-sm" name="nacionalidade" id="nacionalidade" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputEmail4" id="fantasia-label">Nome Fantasia</label>
-                    <input type="text" class="form-control form-control-sm" name="fantasia" id="fantasia" placeholder="">
                 </div>
             </div>
             <div class="form-row">
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-2">
                     <label for="inputEmail4">Telefone</label>
                     <input type="text" class="form-control form-control-sm" name="telefone" id="telefone" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-2">
                     <label for="inputEmail4">Celular</label>
                     <input type="text" class="form-control form-control-sm" name="celular" id="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
+                </div>
+                <div class="form-group col-md-4" id="nacionalidade_leads">
+                    <label for="inputEmail4" id="nacionalidade">Nacionalidade</label>
+                    <input type="text" class="form-control form-control-sm" name="nacionalidade" id="nacionalidade" placeholder="">
                 </div>
                 <div class="form-group col-md-4" id="leads_naturalidade">
                     <label for="inputEmail4">Naturalidade</label>
@@ -312,8 +288,8 @@ if (isset($_POST['cadastrar'])) {
 
 
             </div>
-
         </div>
+        <hr>
         <div class="text-right">
             <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dadados </button>
         </div>
@@ -346,61 +322,6 @@ if (isset($_POST['cadastrar'])) {
 
             }
         </script>
-        <!----------------- checkbox responsavel por perguntar se é LEADS ---------------------->
-        <script>
-            $(document).ready(function() {
-
-                $('#titulo').html('<div>LEADS</div>');
-                $('#label_leads').html('<label>Marque para virar um Parceiro</label>');
-                $('#nav-atividade-tab').hide();
-                $('#nav-endereco-tab').hide();
-                $('#nav-outro-tab').hide();
-                $('#data_funcao').hide();
-                $('#div_pessoa').hide();
-                $('.div-juridico').html('');
-                $('#contato_emp_leads').show();
-                $('#contato_emp_leads').toggleClass('form-group col-md-3');
-                $('#nome_leads').toggleClass('form-group col-md-8');
-                $('#nacionalidade_leads').hide();
-                // $('#cpf_leads').toggleClass('form-group col-md-6');
-                $('#leads').change(function() {
-                    if ($("#leads:checked").val() == undefined) {
-                        $("#leads").prop('checked', false);
-                        $('#nav-atividade-tab').hide();
-                        $('#nav-endereco-tab').hide();
-                        $('#nav-outro-tab').hide();
-                        $('#div_pessoa').hide();
-                        $('#data_funcao').hide();
-                        $('.div-juridico').html('');
-                        $('#nome_leads').toggleClass('form-group col-md-4');
-                        $('#titulo').html('<div>LEADS</div>');
-                        $('#label_leads').html('<label>Marque para virar um Parceiro</label>');
-                        $('#contato_emp_leads').show();
-                        $('#contato_emp_leads').toggleClass('form-group col-md-3');
-
-                    } else {
-                        $("#leads").prop('checked', true);
-                        $('#nav-atividade-tab').show();
-                        $('#nav-endereco-tab').show();
-                        $('#nav-outro-tab').show();
-                        $('#div_pessoa').show();
-                        $('#data_funcao').show();
-                        $('.div-juridico').html('<div class="form-row"><div class="form-group col-md-2"> <label for="inputEmail4">Suframa</label> <input type="text" class="form-control form-control-sm" name="suframa" id="suframa" placeholder=""></div><div class="form-group col-md-4"><label for="inputEmail4">Incrição Estadual</label> <input type="text" class="form-control form-control-sm" name="estadual" id="nome" placeholder=""></div><div class="form-group col-md-4"> <label for="inputEmail4">Incrição Municipal</label> <input type="text" class="form-control form-control-sm" name="municipal" id="nome" placeholder=""></div></div>');
-
-                        $('#titulo').html('<div>PARCEIRO</div>');
-                        $('#label_leads').html('<labe>Desmarque para virar Leads</label>');
-                        $('#nome_leads').toggleClass('form-group col-md-8');
-                        $('#contato_emp_leads').hide();
-                        $('#contato_emp_leads').toggleClass('form-group col-md-0');
-                    }
-                });
-
-
-
-            });
-        </script>
-        <!--************************************************************************************************ -->
-
 
 
         <script>
@@ -434,7 +355,7 @@ if (isset($_POST['cadastrar'])) {
             });
         </script>
 
-      
+
 
 
 </form>

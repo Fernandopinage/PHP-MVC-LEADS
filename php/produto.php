@@ -5,15 +5,19 @@ include_once "../dao/Produto.php";
 if (isset($_POST['produto_cadastro'])) {
 
     $ClassProduto = new ClassProduto();
+    $ClassProduto->setCod($_POST['cod']);
     $ClassProduto->setProduto($_POST['produto']);
-    $ClassProduto->setUnidade($_POST['unidade']);
-    //$ClassProduto->setValor($_POST['valor']);
-    $ClassProduto->setCodigo($_POST['cod']);
-    $ClassProduto->setStatus($_POST['status']);
-    //$ClassProduto->setDescricao($_POST['descrcao']);
-
+    $ClassProduto->setReferencia($_POST['referencia']);
+    $ClassProduto->setTipo($_POST['tipo']);
+    $ClassProduto->setCategoria($_POST['categoria']);
+    $ClassProduto->setCaracteristica($_POST['caracteristica']);
+    $ClassProduto->setCusto($_POST['custo']);
+    $ClassProduto->setVenda($_POST['venda']);
+    $ClassProduto->setDesc($_POST['desc']);
+    $ClassProduto->setComissao($_POST['comissao']);
     $Produto = new ProdutoPAO();
     $Produto->insertProduto($ClassProduto);
+    
 }
 
 
@@ -23,7 +27,7 @@ if (isset($_POST['produto_cadastro'])) {
 <br><br>
 <div class="card" style="margin-bottom: 20px;">
     <div class="navbar navbar-dark bg-dark navbar-expand-lg" style=" color:#fff; ">
-        PRODUTOS
+        PRODUTO
     </div>
 </div>
 <nav>
@@ -38,24 +42,54 @@ if (isset($_POST['produto_cadastro'])) {
         <div class="tab-pane fade show active" id="nav-produto" role="tabpanel" aria-labelledby="nav-produto-tab">
 
             <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="cliente">Código <spam style="color: red;"><strong>*</strong></spam></label>
-                    <input type="text" class="form-control form-control-sm" name="cod" id="cod"  placeholder="">
+                <div class="form-group col-md-1">
+                    <label for="cliente">Cód Unico<spam style="color: red;"><strong>*</strong></spam></label>
+                    <input type="text" class="form-control form-control-sm" name="cod" id="cod" placeholder="">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="cliente">Descrição <spam style="color: red;"><strong>*</strong></spam></label>
                     <input type="text" class="form-control form-control-sm" name="produto" id="produto" placeholder="">
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="cliente">Unid. Medida</label>
-                    <input type="text" class="form-control form-control-sm" name="unidade" id="unidade" placeholder="" >
+                <div class="form-group col-md-4">
+                    <label for="cliente">Referencia</label>
+                    <input type="text" class="form-control form-control-sm" name="referencia" id="referencia" placeholder="">
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="cliente">Status</label>
-                    <select class="form-control form-control-sm" id="status" name="status">
+                    <label for="cliente">Tipo</label>
+                    <select class="form-control form-control-sm" id="tipo" name="tipo">
                         <option selected value="Ativo">Ativo</option>
                         <option value="Inativo">Inativo</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="cliente">Categoria </label>
+                    <input type="text" class="form-control form-control-sm" name="categoria" id="categoria" placeholder="">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cliente">Caracteristicas</label>
+                    <input type="text" class="form-control form-control-sm" name="caracteristica" id="caracteristica" placeholder="">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="cliente">Custo</label>
+                    <input type="text" class="form-control form-control-sm" name="custo" id="custo" placeholder="">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="cliente">Valor de Venda</label>
+                    <input type="text" class="form-control form-control-sm" name="venda" id="venda" placeholder="">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="cliente">Descrição</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <label for="cliente">Comissão(%)</label>
+                    <input type="text" class="form-control form-control-sm" name="comissao" id="comissao" placeholder="">
                 </div>
             </div>
             <div class="text-right">
