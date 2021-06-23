@@ -34,6 +34,7 @@
                         <!-- <a class="dropdown-item" href="?page=preco/">Tabela de Preço</a> -->
                         <!-- <a class="dropdown-item" href="?page=colaborador/">Colaborador</a> -->
                         <!-- <a class="dropdown-item" href="?page=contrato/">Negócios</a> -->
+                        <a class="dropdown-item" href="?page=pagamento/">Pagamentos</a>
                         <a class="dropdown-item" href="?page=usuario/">Usuário</a>
                     </div>
                 </li>

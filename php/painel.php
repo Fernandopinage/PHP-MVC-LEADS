@@ -52,6 +52,10 @@
                 include_once "../php/preco.php";
                 break;    
 
+            case 'pagamento/':
+                include_once "../php/pagamento.php";
+                break;    
+
             default:
                 # code...
                 break;
