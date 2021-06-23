@@ -22,7 +22,7 @@ if (isset($_POST['cadastrar'])) {
     $ClassParceiro->setContato_emp($_POST['contato_emp']);
     $ClassParceiro->setTelefone($_POST['telefone']);
     $ClassParceiro->setCelular($_POST['celular']);
-    $ClassParceiro->setPort($_POST['Port']);
+    $ClassParceiro->setPort($_POST['Porte']);
     $ClassParceiro->setCnae($_POST['cnae']);
     $ClassParceiro->setCep($_POST['cep']);
     $ClassParceiro->setUf($_POST['uf']);
@@ -143,8 +143,8 @@ if (isset($_POST['cadastrar'])) {
                     <input type="text" class="form-control form-control-sm" name="celular" id="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                 </div>
                 <div class="form-group col-md-4" id="port_leads">
-                    <label for="inputEmail4">Port</label>
-                    <input type="text" class="form-control form-control-sm" name="Port" id="Port" placeholder="">
+                    <label for="inputEmail4">Porte</label>
+                    <input type="text" class="form-control form-control-sm" name="Porte" id="Porte" placeholder="">
                 </div>
                 <div class="form-group col-md-4" id="cnae_leads">
                     <label for="inputEmail4">CNAE</label>
@@ -242,7 +242,7 @@ if (isset($_POST['cadastrar'])) {
         </div>
         <hr>
         <div class="text-right">
-            <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dadados </button>
+            <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dados </button>
         </div>
         <!-- **************************************************************************************************** -->
         <!---  Mascara de CEP  ---->
@@ -272,7 +272,7 @@ if (isset($_POST['cadastrar'])) {
                 $('#fantasia-label').show();
                 $('.div-juridico').show();
                 $('.div-fisico').hide();
-                $('.div-juridico').html('<div class="form-row"><div class="form-group col-md-2"> <label for="inputEmail4">Suframa</label> <input type="text" class="form-control form-control-sm" name="suframa" id="suframa" placeholder=""></div><div class="form-group col-md-4"><label for="inputEmail4">Incrição Estadual</label> <input type="text" class="form-control form-control-sm" name="estadual" id="nome" placeholder=""></div><div class="form-group col-md-4"> <label for="inputEmail4">Incrição Municipal</label> <input type="text" class="form-control form-control-sm" name="municipal" id="nome" placeholder=""></div></div>');
+                $('.div-juridico').html('<div class="form-row"><div class="form-group col-md-2"> <label for="inputEmail4">Suframa</label> <input type="text" class="form-control form-control-sm" name="suframa" id="suframa" placeholder=""></div><div class="form-group col-md-4"><label for="inputEmail4">Inscrição Estadual</label> <input type="text" class="form-control form-control-sm" name="estadual" id="nome" placeholder=""></div><div class="form-group col-md-4"> <label for="inputEmail4">Inscrição Municipal</label> <input type="text" class="form-control form-control-sm" name="municipal" id="nome" placeholder=""></div></div>');
 
             }
         </script>
