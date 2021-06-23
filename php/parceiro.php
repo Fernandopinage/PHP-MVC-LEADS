@@ -225,13 +225,7 @@ if (isset($_POST['cadastrar'])) {
                 </div>
                 <div class="form-group col-md-2">
                     <label for="exampleFormControlSelect1">Cargo</label>
-                    <select class="form-control form-control-sm" id="cargo" name="cargo[]">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                    <input type="text" class="form-control form-control-sm" name="cargo[]" id="cargo" placeholder="">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputEmail4">Telefone</label>
@@ -316,10 +310,11 @@ if (isset($_POST['cadastrar'])) {
         </script>
         <!---  adicionando contatos na lista  ---->
         <script>
-            $('#mais').click(function() {
                 var cont = 1;
+            $('#mais').click(function() {
 
-                $('#row').append(' <div class="form-row" id="campo' + cont + '" ><div class="form-group col-md-3"><label for="inputEmail4">Nome</label><input type="text" class="form-control form-control-sm" name="nome_contato[]" id="nome_contato" placeholder=""></div> <div class="form-group col-md-3"><label for="inputEmail4">Email</label><input type="text" class="form-control form-control-sm" name="email_contato[]" id="email_contato" placeholder=""></div> <div class="form-group col-md-2"> <label for="exampleFormControlSelect1">Cargo</label> <select class="form-control form-control-sm" id="cargo" name="cargo[]"><option>1</option> <option>2</option> <option>3</option></select></div> <div class="form-group col-md-2"> <label for="inputEmail4">Telefone</label> <input type="text" class="form-control form-control-sm" name="telefone_contato[]" id="telefone_contato" placeholder=""></div><div class="form-group col-md-2"><a class="btn btn-danger btn-sm" id="' + cont + '" style="margin-top:24px;color: #fff;"> - </a> </div> </div>');
+                $('#row').append(' <div class="form-row" id="campo' + cont + '" ><div class="form-group col-md-3"><label for="inputEmail4">Nome</label><input type="text" class="form-control form-control-sm" name="nome_contato[]" id="nome_contato" placeholder=""></div> <div class="form-group col-md-3"><label for="inputEmail4">Email</label><input type="text" class="form-control form-control-sm" name="email_contato[]" id="email_contato" placeholder=""></div> <div class="form-group col-md-2"> <label for="exampleFormControlSelect1">Cargo</label> <input type="text" class="form-control form-control-sm" name="cargo[]" id="cargo" placeholder=""></div> <div class="form-group col-md-2"> <label for="inputEmail4">Telefone</label> <input type="text" class="form-control form-control-sm" name="telefone_contato[]" id="telefone_contato" placeholder=""></div><div class="form-group col-md-2"><a class="btn btn-danger btn-sm" id="' + cont + '" style="margin-top:24px;color: #fff;"> - </a> </div> </div>');
+                cont++
 
             });
             $("form").on("click", ".btn-danger", function() {
