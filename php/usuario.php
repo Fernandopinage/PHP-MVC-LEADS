@@ -15,6 +15,13 @@ $dado =  $GrupoUsuario->selectGrupoUsuario();
 
 if (isset($_POST['usuario'])) {
 
+    if(isset($_FILES['foto']['name'])){
+
+        $imagem =  $_FILES['foto']['name'];
+        $diretorio = '../imagem/';
+        move_uploaded_file($_FILES['foto']['tmp_name'], $diretorio . $imagem);
+    }
+
 
     if ($_POST['senha'] != $_POST['confsenha']) {
 ?>
@@ -33,7 +40,7 @@ if (isset($_POST['usuario'])) {
         $ClassUsuario = new ClassUsuario();
         $ClassUsuario->setNome($_POST['nome']);
         $ClassUsuario->setEmail($_POST['email']);
-        $ClassUsuario->setFoto($_POST['foto']);
+        $ClassUsuario->setFoto($imagem);
         $ClassUsuario->setSenha($_POST['senha']);
         $ClassUsuario->setFuncao($_POST['funcao']);
         $ClassUsuario->setData($_POST['data']);
@@ -112,7 +119,7 @@ if (isset($_POST['usuario'])) {
 
         </div>
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputNome" id="nome">Nome Completo</label>
@@ -124,7 +131,7 @@ if (isset($_POST['usuario'])) {
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputFoto" id="foto">Foto</label>
-                    <input type="file" class="form-control form-control-sm" id="foto" name="foto" placeholder="">
+                    <input type="file" class="form-control form-control-sm" id="foto" name="foto" accept=".png, .jpg, .jpeg" placeholder="">
                 </div>
             </div>
             <div class="form-row">
