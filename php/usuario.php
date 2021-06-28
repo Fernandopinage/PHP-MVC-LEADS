@@ -15,10 +15,19 @@ $dado =  $GrupoUsuario->selectGrupoUsuario();
 
 if (isset($_POST['usuario'])) {
 
-    $A = $_POST['senha'];
-    $B = $_POST['confsenha'];
-    if ($A != $B) {
-        $_SESSION['danger'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert" id="danger">Senha diferente <button type="button" class="close" data-dismiss="alert" aria-label="Close">    <span aria-hidden="true">&times;</span>  </button></div>';
+
+    if ($_POST['senha'] != $_POST['confsenha']) {
+?>
+        <script>
+            Swal.fire({
+                title: 'Atenção!',
+                text: 'Os Campos referemte a senha estão diferente. Por favor verificar',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            })
+        </script>
+
+    <?php
     } else {
 
         $ClassUsuario = new ClassUsuario();
@@ -28,10 +37,22 @@ if (isset($_POST['usuario'])) {
         $ClassUsuario->setSenha($_POST['senha']);
         $ClassUsuario->setFuncao($_POST['funcao']);
         $ClassUsuario->setData($_POST['data']);
-        $ClassUsuario->setOption($_POST['option']);
+        //$ClassUsuario->setOption($_POST['option']);
 
         $usuario = new UsuarioDao();
         $usuario->insertUsuario($ClassUsuario);
+    ?>
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Registro salvo com sucesso',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+
+<?php
     }
 }
 

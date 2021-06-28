@@ -30,8 +30,6 @@ class UsuarioDao extends Dao
         $insert->bindValue(':inicioexpiracao', $ClassUsuario->getData());
         $insert->bindValue(':controle', '');
         $insert->execute();
-        if ($insert->rowCount()) {
-            return $_SESSION['MSG'] = '<div class="alert alert-success alert-dismissible fade show" role="alert" id="msg">  Registro salvo com sucesso!.  <button type="button" class="close" data-dismiss="alert" aria-label="Close">    <span aria-hidden="true">&times;</span>  </button></div>';
-        }
+
     }
 }
