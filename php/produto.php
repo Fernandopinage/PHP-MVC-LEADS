@@ -4,9 +4,9 @@ include_once "../dao/Produto.php";
 
 if (isset($_POST['produto_cadastro'])) {
 
-    if(!empty($_POST['cod'])  and !empty($_POST['produto'])){
+    if (!empty($_POST['cod'])  and !empty($_POST['produto'])) {
 
-        
+
         $ClassProduto = new ClassProduto();
         $ClassProduto->setCod($_POST['cod']);
         $ClassProduto->setProduto($_POST['produto']);
@@ -20,9 +20,21 @@ if (isset($_POST['produto_cadastro'])) {
         $ClassProduto->setComissao($_POST['comissao']);
         $Produto = new ProdutoPAO();
         $Produto->insertProduto($ClassProduto);
+?>
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Registro salvo com sucesso',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
 
-    }else{
-        ?>
+    <?php
+
+    } else {
+    ?>
         <script>
             Swal.fire({
                 title: 'Atenção!',
@@ -32,11 +44,10 @@ if (isset($_POST['produto_cadastro'])) {
             })
         </script>
 
-    <?php
+<?php
 
 
     }
-    
 }
 
 

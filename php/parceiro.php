@@ -9,44 +9,73 @@ $con->getConection();
 
 if (isset($_POST['cadastrar'])) {
 
-
-    $ClassParceiro = new ClassParceiro();
-
-    $ClassParceiro->setOpt($_POST['opt']);
-    $ClassParceiro->setOption($_POST['option']);
-    $ClassParceiro->setCpf($_POST['cpf']);
-    $ClassParceiro->setNome($_POST['nome']);
-    $ClassParceiro->setDatanasc($_POST['datanasc']);
-    $ClassParceiro->setFantasia($_POST['fantasia']);
-    $ClassParceiro->setEmail($_POST['email']);
-    $ClassParceiro->setContato_emp($_POST['contato_emp']);
-    $ClassParceiro->setTelefone($_POST['telefone']);
-    $ClassParceiro->setCelular($_POST['celular']);
-    $ClassParceiro->setPort($_POST['Porte']);
-    $ClassParceiro->setCnae($_POST['cnae']);
-    $ClassParceiro->setCep($_POST['cep']);
-    $ClassParceiro->setUf($_POST['uf']);
-    $ClassParceiro->setNumero($_POST['numero']);
-    $ClassParceiro->setMunicipio($_POST['municipio']);
-    $ClassParceiro->setEndereco($_POST['endereco']);
-    $ClassParceiro->setBairro($_POST['bairro']);
-    $ClassParceiro->setComplemento($_POST['complemento']);
-    $ClassParceiro->setNome_contato(implode(",", $_POST['nome_contato']));
-    $ClassParceiro->setCargo_contato(implode(",", $_POST['cargo']));
-    $ClassParceiro->setEmail_contato(implode(",", $_POST['email_contato']));
-    $ClassParceiro->setTelefone_contato(implode(",", $_POST['telefone_contato']));
-    $ClassParceiro->setInclusao($_POST['inclusao']);
+    if (!empty($_POST['cpf']) and !empty($_POST['nome'])) {
 
 
+        $ClassParceiro = new ClassParceiro();
 
-    if ($_POST['opt'] != 'J') {
-        $ClassParceiro->setCnh($_POST['cnh']);
-        $ClassParceiro->setRg($_POST['rg']);
+        $ClassParceiro->setOpt($_POST['opt']);
+        $ClassParceiro->setOption($_POST['option']);
+        $ClassParceiro->setCpf($_POST['cpf']);
+        $ClassParceiro->setNome($_POST['nome']);
+        $ClassParceiro->setDatanasc($_POST['datanasc']);
+        $ClassParceiro->setFantasia($_POST['fantasia']);
+        $ClassParceiro->setEmail($_POST['email']);
+        $ClassParceiro->setContato_emp($_POST['contato_emp']);
+        $ClassParceiro->setTelefone($_POST['telefone']);
+        $ClassParceiro->setCelular($_POST['celular']);
+        $ClassParceiro->setPort($_POST['Porte']);
+        $ClassParceiro->setCnae($_POST['cnae']);
+        $ClassParceiro->setCep($_POST['cep']);
+        $ClassParceiro->setUf($_POST['uf']);
+        $ClassParceiro->setNumero($_POST['numero']);
+        $ClassParceiro->setMunicipio($_POST['municipio']);
+        $ClassParceiro->setEndereco($_POST['endereco']);
+        $ClassParceiro->setBairro($_POST['bairro']);
+        $ClassParceiro->setComplemento($_POST['complemento']);
+        $ClassParceiro->setNome_contato(implode(",", $_POST['nome_contato']));
+        $ClassParceiro->setCargo_contato(implode(",", $_POST['cargo']));
+        $ClassParceiro->setEmail_contato(implode(",", $_POST['email_contato']));
+        $ClassParceiro->setTelefone_contato(implode(",", $_POST['telefone_contato']));
+        $ClassParceiro->setInclusao($_POST['inclusao']);
+
+
+
+        if ($_POST['opt'] != 'J') {
+            $ClassParceiro->setCnh($_POST['cnh']);
+            $ClassParceiro->setRg($_POST['rg']);
+        }
+
+        $Parceiro = new ParceiroDao();
+        $Parceiro->insert($ClassParceiro);
+
+    ?>
+        <script>
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Registro salvo com sucesso',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+
+    <?php
+
+    } else {
+    ?>
+        <script>
+            Swal.fire({
+                title: 'Atenção!',
+                text: 'Preenchar todos os campos obrigatorios!',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            })
+        </script>
+
+<?php
+
     }
- 
-    $Parceiro = new ParceiroDao();
-    $Parceiro->insert($ClassParceiro);
-    
 }
 
 ?>
@@ -252,8 +281,8 @@ if (isset($_POST['cadastrar'])) {
             var opt = document.getElementById('opt').value;
 
             if (opt === 'F') {
-                $('#nome').html('<label for="inputEmail4"  id="nome">Nome Completo</label>');
-                $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CPF</label>');
+                $('#nome').html('<label for="inputEmail4"  id="nome">Nome Completo <span style="color:red;">*</span></label>');
+                $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CPF <span style="color:red;">*</span></label>');
                 $('#nascimento-label').html('<label for="inputEmail4"  id="CPF-CNPJ">Data Nascimento</label>');
                 $('.div-juritico').hide(); /** */
                 $('.div-fisico').show();
@@ -265,8 +294,8 @@ if (isset($_POST['cadastrar'])) {
 
             } else {
 
-                $('#nome').html('<label for="inputEmail4" id="nome">Razão Social</label>');
-                $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CNPJ</label>');
+                $('#nome').html('<label for="inputEmail4" id="nome">Razão Social <span style="color:red;">*</span></label>');
+                $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CNPJ <span style="color:red;">*</span></label>');
                 $('#nascimento-label').html('<label for="inputEmail4"  id="CPF-CNPJ">Data Função</label>');
                 $('#fantasia').show();
                 $('#fantasia-label').show();
@@ -283,8 +312,8 @@ if (isset($_POST['cadastrar'])) {
 
                 $(".pessoa").change(function() {
                     if ($(this).val() === 'F') {
-                        $('#nome').html('<label for="inputEmail4"  id="nome">Nome Completo</label>');
-                        $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CPF</label>');
+                        $('#nome').html('<label for="inputEmail4"  id="nome">Nome Completo <span style="color:red;">*</span></label>');
+                        $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CPF <span style="color:red;">*</span></label>');
                         $('#nascimento-label').html('<label for="inputEmail4"  id="CPF-CNPJ">Data Nascimento</label>');
                         $('.div-juritico').hide(); /** */
                         $('.div-fisico').show();
@@ -294,8 +323,8 @@ if (isset($_POST['cadastrar'])) {
                         $('#fantasia').hide();
                     }
                     if ($(this).val() === 'J') {
-                        $('#nome').html('<label for="inputEmail4" id="nome">Razão Social</label>');
-                        $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CNPJ</label>');
+                        $('#nome').html('<label for="inputEmail4" id="nome">Razão Social <span style="color:red;">*</span></label>');
+                        $('#CPF-CNPJ').html('<label for="inputEmail4"  id="CPF-CNPJ">CNPJ <span style="color:red;">*</span></label>');
                         $('#nascimento-label').html('<label for="inputEmail4"  id="CPF-CNPJ">Data Função</label>');
                         $('#fantasia').show();
                         $('#fantasia-label').show();
@@ -310,7 +339,7 @@ if (isset($_POST['cadastrar'])) {
         </script>
         <!---  adicionando contatos na lista  ---->
         <script>
-                var cont = 1;
+            var cont = 1;
             $('#mais').click(function() {
 
                 $('#row').append(' <div class="form-row" id="campo' + cont + '" ><div class="form-group col-md-3"><label for="inputEmail4">Nome</label><input type="text" class="form-control form-control-sm" name="nome_contato[]" id="nome_contato" placeholder=""></div> <div class="form-group col-md-3"><label for="inputEmail4">Email</label><input type="text" class="form-control form-control-sm" name="email_contato[]" id="email_contato" placeholder=""></div> <div class="form-group col-md-2"> <label for="exampleFormControlSelect1">Cargo</label> <input type="text" class="form-control form-control-sm" name="cargo[]" id="cargo" placeholder=""></div> <div class="form-group col-md-2"> <label for="inputEmail4">Telefone</label> <input type="text" class="form-control form-control-sm" name="telefone_contato[]" id="telefone_contato" placeholder=""></div><div class="form-group col-md-2"><a class="btn btn-danger btn-sm" id="' + cont + '" style="margin-top:24px;color: #fff;"> - </a> </div> </div>');
