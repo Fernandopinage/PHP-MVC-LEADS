@@ -4,19 +4,38 @@ include_once "../dao/Produto.php";
 
 if (isset($_POST['produto_cadastro'])) {
 
-    $ClassProduto = new ClassProduto();
-    $ClassProduto->setCod($_POST['cod']);
-    $ClassProduto->setProduto($_POST['produto']);
-    $ClassProduto->setReferencia($_POST['referencia']);
-    $ClassProduto->setTipo($_POST['tipo']);
-    $ClassProduto->setCategoria($_POST['categoria']);
-    $ClassProduto->setCaracteristica($_POST['caracteristica']);
-    $ClassProduto->setCusto($_POST['custo']);
-    $ClassProduto->setVenda($_POST['venda']);
-    $ClassProduto->setDesc($_POST['desc']);
-    $ClassProduto->setComissao($_POST['comissao']);
-    $Produto = new ProdutoPAO();
-    $Produto->insertProduto($ClassProduto);
+    if(!empty($_POST['cod'])  and !empty($_POST['produto'])){
+
+        
+        $ClassProduto = new ClassProduto();
+        $ClassProduto->setCod($_POST['cod']);
+        $ClassProduto->setProduto($_POST['produto']);
+        $ClassProduto->setReferencia($_POST['referencia']);
+        $ClassProduto->setTipo($_POST['tipo']);
+        $ClassProduto->setCategoria($_POST['categoria']);
+        $ClassProduto->setCaracteristica($_POST['caracteristica']);
+        $ClassProduto->setCusto($_POST['custo']);
+        $ClassProduto->setVenda($_POST['venda']);
+        $ClassProduto->setDesc($_POST['desc']);
+        $ClassProduto->setComissao($_POST['comissao']);
+        $Produto = new ProdutoPAO();
+        $Produto->insertProduto($ClassProduto);
+
+    }else{
+        ?>
+        <script>
+            Swal.fire({
+                title: 'Atenção!',
+                text: 'Preenchar todos os campos obrigatorios!',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            })
+        </script>
+
+    <?php
+
+
+    }
     
 }
 

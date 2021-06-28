@@ -9,6 +9,7 @@
     <link href='../css/main.css' rel='stylesheet' />
     <link href='../css/css.css' rel='stylesheet' />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src='../js/main.js'></script>
     <script src='../js/locales-all.js'></script>
     <script src='../locales/pt-br.js'></script>
