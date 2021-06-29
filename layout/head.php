@@ -35,7 +35,7 @@
                         <!-- <a class="dropdown-item" href="?page=preco/">Tabela de Preço</a> -->
                         <!-- <a class="dropdown-item" href="?page=colaborador/">Colaborador</a> -->
                         <!-- <a class="dropdown-item" href="?page=contrato/">Negócios</a> -->
-                        <a class="dropdown-item" href="?page=pagamento/">Pagamentos</a>
+                        <!--<a class="dropdown-item" href="?page=pagamento/">Pagamentos</a> -->
                         <a class="dropdown-item" href="?page=usuario/">Usuário</a>
                     </div>
                 </li>
@@ -49,7 +49,7 @@
                     </div>
                 </li>
 
-                
+
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
                     </div>
                 </li>
                  -->
-                 
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
                         Logout
@@ -78,13 +78,13 @@
                         <a class="dropdown-item" href="?page=sair/">Sair</a>
                         <a class="dropdown-item" href="?page=senha/">Alter Senha</a>
                         <a class="dropdown-item" href="?page=sobre/">Sobre</a>
-                        
+
                     </div>
                 </li>
 
             </ul>
         </div>
-        
+
     </nav>
 
 </body>

@@ -49,7 +49,7 @@ if (isset($_POST['cadastrar'])) {
         $Parceiro = new ParceiroDao();
         $Parceiro->insert($ClassParceiro);
 
-    ?>
+?>
         <script>
             Swal.fire({
                 position: 'center',
@@ -80,11 +80,22 @@ if (isset($_POST['cadastrar'])) {
 
 ?>
 
+<style>
+    #conteudo {
+        border: 0px solid;
+        padding: 10px;
+        box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.342);
+        border-radius: 10px;
+        border-style: dashed;
+        /*border-color: #f00; */
+        padding: 15px 35px 45px 15px;
+    }
+</style>
 
 <br><br>
 <div class="card" style="margin-bottom: 20px;">
     <div class="navbar navbar-dark bg-dark navbar-expand-lg" id="titulo" style=" color:#fff; ">
-
+        PARCEIRO
     </div>
 </div>
 <nav>
@@ -102,171 +113,174 @@ if (isset($_POST['cadastrar'])) {
 
         <!-- ******************************* Cadastro ***************************************************-->
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <p class="text-white bg-secondary text-center">DADOS PESSOAIS</p>
+            <div id="conteudo">
+                <p class="text-white bg-secondary text-center">DADOS PESSOAIS</p>
 
-            <div class="form-row" id="div_pessoa">
-                <div class="form-group col-md-4">
-                    <label for="inputEmail4" id="pessoa">Tipo Pessoa</label>
-                    <div class="form-check">
-                        <input class="pessoa form-check-input" type="radio" name="opt" id="opt" value="J" CHECKED>
-                        <label class="form-check-label" for="pessoa" id="juridica">
-                            Pessoa juridica
-                        </label>
+                <div class="form-row" id="div_pessoa">
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4" id="pessoa">Tipo Pessoa</label>
+                        <div class="form-check">
+                            <input class="pessoa form-check-input" type="radio" name="opt" id="opt" value="J" CHECKED>
+                            <label class="form-check-label" for="pessoa" id="juridica">
+                                Pessoa juridica
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="pessoa form-check-input" type="radio" name="opt" id="opt" value="F">
+                            <label class="form-check-label" for="pessoa" id="Fisica">
+                                Pessoa Fisica
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="pessoa form-check-input" type="radio" name="opt" id="opt" value="F">
-                        <label class="form-check-label" for="pessoa" id="Fisica">
-                            Pessoa Fisica
-                        </label>
+                    <div class="form-group col-md-4">
+                        <label for="exampleFormControlSelect1">Categoria</label>
+                        <select class="form-control form-control-sm" name="option" id="option">
+                            <option value="pontecial">CLIENTE POTENCIAL (LEAD)</option>
+                            <option value="base ativo">CLIENTE BASE (ATIVO)</option>
+                            <option value="base inativo">CLIENTE BASE (INATIVO)</option>
+                            <option value="perdido churn">CLIENTE PERDIDO (CHURN)</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3" id="cpf_leads">
+                        <label for="inputEmail4" id="CPF-CNPJ">CPF</label>
+                        <input type="text" class="form-control form-control-sm" onfocus="javascript: retirarFormatacao(this);" onblur="javascript: formatarCampo(this);" name="cpf" id="cpf" placeholder="99.999.999/9999-99">
+                    </div>
+                    <div class="form-group col-md-6" id="nome_leads">
+                        <label for="inputEmail4" id="nome">Nome Completo</label>
+                        <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3" id="data_funcao">
+                        <label for="inputEmail4" id="nascimento-label">Data Nascimento</label>
+                        <input type="date" class="form-control form-control-sm" name="datanasc" id="datanasc" placeholder="">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4" id="fantasia">
+                        <label for="inputEmail4">Nome Fantasia</label>
+                        <input type="text" class="form-control form-control-sm" name="fantasia" id="fantasia" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4">E-mail</label>
+                        <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4" id="contato_emp_leads">
+                        <label for="inputEmail4" id="contato_emp">Contato</label>
+                        <input type="text" class="form-control form-control-sm" name="contato_emp" placeholder="">
                     </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlSelect1">Categoria</label>
-                    <select class="form-control form-control-sm" name="option" id="option">
-                        <option value="pontecial">CLIENTE POTENCIAL (LEAD)</option>
-                        <option value="base ativo">CLIENTE BASE (ATIVO)</option>
-                        <option value="base inativo">CLIENTE BASE (INATIVO)</option>
-                        <option value="perdido churn">CLIENTE PERDIDO (CHURN)</option>
-                    </select>
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Telefone</label>
+                        <input type="text" class="form-control form-control-sm" name="telefone" id="telefone" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Celular</label>
+                        <input type="text" class="form-control form-control-sm" name="celular" id="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
+                    </div>
+                    <div class="form-group col-md-4" id="port_leads">
+                        <label for="inputEmail4">Porte</label>
+                        <input type="text" class="form-control form-control-sm" name="Porte" id="Porte" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4" id="cnae_leads">
+                        <label for="inputEmail4">CNAE</label>
+                        <input type="text" class="form-control form-control-sm" name="cnae" id="cnae" placeholder="">
+                    </div>
+
+
+                    <input type="hidden" class="form-control form-control-sm" name="inclusao" id="inclusao" value="<?php echo date('Y-m-d'); ?>" placeholder="">
+
                 </div>
 
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3" id="cpf_leads">
-                    <label for="inputEmail4" id="CPF-CNPJ">CPF</label>
-                    <input type="text" class="form-control form-control-sm" onfocus="javascript: retirarFormatacao(this);" onblur="javascript: formatarCampo(this);" name="cpf" id="cpf" placeholder="99.999.999/9999-99">
-                </div>
-                <div class="form-group col-md-6" id="nome_leads">
-                    <label for="inputEmail4" id="nome">Nome Completo</label>
-                    <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
-                </div>
-                <div class="form-group col-md-3" id="data_funcao">
-                    <label for="inputEmail4" id="nascimento-label">Data Nascimento</label>
-                    <input type="date" class="form-control form-control-sm" name="datanasc" id="datanasc" placeholder="">
+                <div class="div-fisico">
+
+
                 </div>
 
-            </div>
+                <div class="div-juridico">
 
-            <div class="form-row">
-                <div class="form-group col-md-4" id="fantasia">
-                    <label for="inputEmail4">Nome Fantasia</label>
-                    <input type="text" class="form-control form-control-sm" name="fantasia" id="fantasia" placeholder="">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputEmail4">E-mail</label>
-                    <input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="">
-                </div>
-                <div class="form-group col-md-4" id="contato_emp_leads">
-                    <label for="inputEmail4" id="contato_emp">Contato</label>
-                    <input type="text" class="form-control form-control-sm" name="contato_emp" placeholder="">
+
                 </div>
             </div>
-            <div class="form-row">
-
-                <div class="form-group col-md-2">
-                    <label for="inputEmail4">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" name="telefone" id="telefone" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputEmail4">Celular</label>
-                    <input type="text" class="form-control form-control-sm" name="celular" id="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
-                </div>
-                <div class="form-group col-md-4" id="port_leads">
-                    <label for="inputEmail4">Porte</label>
-                    <input type="text" class="form-control form-control-sm" name="Porte" id="Porte" placeholder="">
-                </div>
-                <div class="form-group col-md-4" id="cnae_leads">
-                    <label for="inputEmail4">CNAE</label>
-                    <input type="text" class="form-control form-control-sm" name="cnae" id="cnae" placeholder="">
-                </div>
-
-
-                <input type="hidden" class="form-control form-control-sm" name="inclusao" id="inclusao" value="<?php echo date('Y-m-d'); ?>" placeholder="">
-
-            </div>
-
-            <div class="div-fisico">
-
-
-            </div>
-
-            <div class="div-juridico">
-
-
-            </div>
-
 
         </div>
         <!-- **************************************************************************************************** -->
 
         <!-- *************************************** Endereço *************************************************** -->
         <div class="tab-pane fade" id="nav-endereco" role="tabpanel" aria-labelledby="nav-endereco-tab">
-            <p class="text-white bg-secondary text-center ">ENDEREÇO</p>
-            <div class="form-row">
+            <div id="conteudo">
+                <p class="text-white bg-secondary text-center ">ENDEREÇO</p>
+                <div class="form-row">
 
-                <div class="form-group col-md-2">
-                    <label for="inputEmail4">CEP</label>
-                    <input type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="">
-                </div>
-                <div class="form-group col-md-1">
-                    <label for="inputEmail4">UF</label>
-                    <input type="text" class="form-control form-control-sm" name="uf" id="uf" placeholder="">
-                </div>
-                <div class="form-group col-md-1">
-                    <label for="inputEmail4">Nº</label>
-                    <input type="text" class="form-control form-control-sm" name="numero" id="numero" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputEmail4">Municipio</label>
-                    <input type="text" class="form-control form-control-sm" name="municipio" id="cidade" placeholder="">
-                </div>
-                <div class="form-group col-md-5">
-                    <label for="inputEmail4">Endereço</label>
-                    <input type="text" class="form-control form-control-sm" name="endereco" id="rua" placeholder="">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputEmail4">Bairro</label>
-                    <input type="text" class="form-control form-control-sm" name="bairro" id="bairro" placeholder="">
-                </div>
-                <div class="form-group col-md-8">
-                    <label for="inputEmail4">Complemento</label>
-                    <input type="text" class="form-control form-control-sm" name="complemento" id="complemento" placeholder="">
-                </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">CEP</label>
+                        <input type="text" class="form-control form-control-sm" name="cep" id="cep" placeholder="">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="inputEmail4">UF</label>
+                        <input type="text" class="form-control form-control-sm" name="uf" id="uf" placeholder="">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="inputEmail4">Nº</label>
+                        <input type="text" class="form-control form-control-sm" name="numero" id="numero" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Municipio</label>
+                        <input type="text" class="form-control form-control-sm" name="municipio" id="cidade" placeholder="">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputEmail4">Endereço</label>
+                        <input type="text" class="form-control form-control-sm" name="endereco" id="rua" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4">Bairro</label>
+                        <input type="text" class="form-control form-control-sm" name="bairro" id="bairro" placeholder="">
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label for="inputEmail4">Complemento</label>
+                        <input type="text" class="form-control form-control-sm" name="complemento" id="complemento" placeholder="">
+                    </div>
 
 
+                </div>
             </div>
-
         </div>
         <!-- **************************************************************************************************** -->
 
         <!-- ****************************************** Contatos ************************************************** -->
         <div class="tab-pane fade" id="nav-outro" role="tabpanel" aria-labelledby="nav-outro-tab">
-            <p class="text-white bg-secondary text-center">Contatos</p>
-            <div class="form-row">
+            <div id="conteudo">
+                <p class="text-white bg-secondary text-center">Contatos</p>
+                <div class="form-row">
 
-                <div class="form-group col-md-3">
-                    <label for="inputEmail4">Nome</label>
-                    <input type="text" class="form-control form-control-sm" name="nome_contato[]" id="nome_contato" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputEmail4">Email</label>
-                    <input type="text" class="form-control form-control-sm" name="email_contato[]" id="email_contato" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="exampleFormControlSelect1">Cargo</label>
-                    <input type="text" class="form-control form-control-sm" name="cargo[]" id="cargo" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputEmail4">Telefone</label>
-                    <input type="text" class="form-control form-control-sm" name="telefone_contato[]" id="telefone_contato[]" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                    <button type="button" class="btn btn-primary btn-sm" id="mais" style="margin-top: 28px;">+</button>
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Nome</label>
+                        <input type="text" class="form-control form-control-sm" name="nome_contato[]" id="nome_contato" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Email</label>
+                        <input type="text" class="form-control form-control-sm" name="email_contato[]" id="email_contato" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleFormControlSelect1">Cargo</label>
+                        <input type="text" class="form-control form-control-sm" name="cargo[]" id="cargo" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Telefone</label>
+                        <input type="text" class="form-control form-control-sm" name="telefone_contato[]" id="telefone_contato[]" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button type="button" class="btn btn-primary btn-sm" id="mais" style="margin-top: 28px;">+</button>
 
+                    </div>
                 </div>
-            </div>
-            <div class="" id="row">
-
+                <div class="" id="row">
+                </div>
             </div>
         </div>
         <hr>

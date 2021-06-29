@@ -1,40 +1,9 @@
-
-.foottitle{                         /*  Foot da pagina com destaque no nome Progride  */
-
-    text-decoration: none;
-    margin-left: 500px;
-    margin-bottom: -20px;
-    color: #FF7F00;
+#conteudo {
+    border: 0px solid;
+    padding: 10px;
+    box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.342);
+    border-radius: 10px;
+    border-style: dashed;
+    /*border-color: #f00; */
+    padding: 15px 35px 45px 15px;
 }
-/*
-input{
-
-    text-transform: uppercase;
-}
-select{
-    text-transform: uppercase;
-}
-option{
-    text-transform: uppercase;
-}
-
-.fc-toolbar-title{                 
-
-    text-transform: uppercase;
-}
-*/
-::-webkit-input-placeholder {
-    text-transform: initial;
- }
- 
- :-moz-placeholder { 
-    text-transform: initial;
- }
- 
- ::-moz-placeholder {  
-    text-transform: initial;
- }
- 
- :-ms-input-placeholder { 
-    text-transform: initial;
- }

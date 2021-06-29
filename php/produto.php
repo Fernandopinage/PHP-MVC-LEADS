@@ -54,6 +54,18 @@ if (isset($_POST['produto_cadastro'])) {
 
 
 ?>
+
+<style>
+    #conteudo {
+        border: 0px solid;
+        padding: 10px;
+        box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.342);
+        border-radius: 10px;
+        border-style: dashed;
+        /*border-color: #f00; */
+        padding: 15px 35px 45px 15px;
+    }
+</style>
 <br><br>
 <div class="card" style="margin-bottom: 20px;">
     <div class="navbar navbar-dark bg-dark navbar-expand-lg" style=" color:#fff; ">
@@ -66,67 +78,69 @@ if (isset($_POST['produto_cadastro'])) {
     </div>
 </nav>
 <br>
-<hr><br>
 <form action="" method="POST">
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-produto" role="tabpanel" aria-labelledby="nav-produto-tab">
-
-            <div class="form-row">
-                <div class="form-group col-md-1">
-                    <label for="cliente">Cód Unico<spam style="color: red;"><strong>*</strong></spam></label>
-                    <input type="text" class="form-control form-control-sm" name="cod" id="cod" placeholder="">
+            <div id="conteudo">
+                <p class="text-white bg-secondary text-center">DADOS DO PRODUTO</p>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <label for="cliente">Cód Unico<spam style="color: red;"><strong>*</strong></spam></label>
+                        <input type="text" class="form-control form-control-sm" name="cod" id="cod" placeholder="">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="cliente">Descrição <spam style="color: red;"><strong>*</strong></spam></label>
+                        <input type="text" class="form-control form-control-sm" name="produto" id="produto" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cliente">Referencia</label>
+                        <input type="text" class="form-control form-control-sm" name="referencia" id="referencia" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="cliente">Tipo</label>
+                        <select class="form-control form-control-sm" id="tipo" name="tipo">
+                            <option selected value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col-md-5">
-                    <label for="cliente">Descrição <spam style="color: red;"><strong>*</strong></spam></label>
-                    <input type="text" class="form-control form-control-sm" name="produto" id="produto" placeholder="">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="cliente">Categoria </label>
+                        <input type="text" class="form-control form-control-sm" name="categoria" id="categoria" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cliente">Caracteristicas</label>
+                        <input type="text" class="form-control form-control-sm" name="caracteristica" id="caracteristica" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="cliente">Custo</label>
+                        <input type="text" class="form-control form-control-sm" name="custo" id="custo" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="cliente">Valor de Venda</label>
+                        <input type="text" class="form-control form-control-sm" name="venda" id="venda" placeholder="">
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="cliente">Referencia</label>
-                    <input type="text" class="form-control form-control-sm" name="referencia" id="referencia" placeholder="">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="cliente">Descrição</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3"></textarea>
+                    </div>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="cliente">Tipo</label>
-                    <select class="form-control form-control-sm" id="tipo" name="tipo">
-                        <option selected value="Ativo">Ativo</option>
-                        <option value="Inativo">Inativo</option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <label for="cliente">Comissão(%)</label>
+                        <input type="text" class="form-control form-control-sm" name="comissao" id="comissao" placeholder="">
+                    </div>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="cliente">Categoria </label>
-                    <input type="text" class="form-control form-control-sm" name="categoria" id="categoria" placeholder="">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="cliente">Caracteristicas</label>
-                    <input type="text" class="form-control form-control-sm" name="caracteristica" id="caracteristica" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="cliente">Custo</label>
-                    <input type="text" class="form-control form-control-sm" name="custo" id="custo" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="cliente">Valor de Venda</label>
-                    <input type="text" class="form-control form-control-sm" name="venda" id="venda" placeholder="">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="cliente">Descrição</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-1">
-                    <label for="cliente">Comissão(%)</label>
-                    <input type="text" class="form-control form-control-sm" name="comissao" id="comissao" placeholder="">
-                </div>
-            </div>
+            <hr>
             <div class="text-right">
                 <input class="btn btn-success" name="produto_cadastro" type="submit" value="Salvar Produto">
             </div>
+        </div>
 </form>
-</div>
 
 <script language="javascript" src="../js/mascara_valor.js">
     //onKeyPress="return(moeda(this,'.',',',event))   adicionar essa chamda de função no input

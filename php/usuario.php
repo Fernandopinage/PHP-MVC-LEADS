@@ -15,7 +15,7 @@ $dado =  $GrupoUsuario->selectGrupoUsuario();
 
 if (isset($_POST['usuario'])) {
 
-    if(isset($_FILES['foto']['name'])){
+    if (isset($_FILES['foto']['name'])) {
 
         $imagem =  $_FILES['foto']['name'];
         $diretorio = '../imagem/';
@@ -65,6 +65,17 @@ if (isset($_POST['usuario'])) {
 
 
 ?>
+<style>
+    #conteudo {
+        border: 0px solid;
+        padding: 10px;
+        box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.342);
+        border-radius: 10px;
+        border-style: dashed;
+        /*border-color: #f00; */
+        padding: 15px 35px 45px 15px;
+    }
+</style>
 
 <br><br>
 <div class="card" style="margin-bottom: 20px;">
@@ -82,87 +93,88 @@ if (isset($_POST['usuario'])) {
 
 <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-        <p class="text-white bg-secondary text-center">DADOS DO USUÁRIO</p><br>
-        <!--
-        <div class="text-right">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <img src="../img/outline_add_white_24dp.png"> Nova Função
-            </button>
-
-        </div>
-        -->
-        <div>
-            <?php
-            if (!empty($_SESSION['danger'])) {
-
-                echo $_SESSION['danger'];
-                $_SESSION['danger'] = '';
-            }
-            if (!empty($_SESSION['MSG'])) {
-            ?>
-                <script>
-                    $(document).ready(function() {
-
-                        setTimeout(function() {
-
-                            $("#msg").alert('close');
-                        }, 3000);
-
-                    });
-                </script>
-            <?php
-                echo $_SESSION['MSG'];
-                $_SESSION['MSG'] = '';
-            }
-
-            ?>
-
-        </div>
-
-        <form action="" method="POST" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="inputNome" id="nome">Nome Completo</label>
-                    <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputEmail4" id="email">Email</label>
-                    <input type="text" class="form-control form-control-sm" name="email" id="email" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputFoto" id="foto">Foto</label>
-                    <input type="file" class="form-control form-control-sm" id="foto" name="foto" accept=".png, .jpg, .jpeg" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                     <img width="150" height="150">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="inputSenha" id="senha">Senha</label>
-                    <input type="password" class="form-control form-control-sm" name="senha" id="senha" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputNovasenha" id="confsenha">Confirmar senha</label>
-                    <input type="password" class="form-control form-control-sm" name="confsenha" id="confsenha" placeholder="">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputState" id="funcao">Cargo</label>
-                    <select id="funcao" name="funcao" class="form-control form-control-sm">
-                        <option selected></option>
-                        <?php
-                        foreach ($dado as $dados) {
-                            echo "<option value=' . $dados->getId() . '>" . $dados->getDesc() . "</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputEmail4" id="data">Data de Cadastro</label>
-                    <input type="date" class="form-control form-control-sm" name="data" id="data" placeholder="" value="<?php echo date('Y-m-d'); ?>">
-                </div>
-            </div>
+        <div id="conteudo">
+            <p class="text-white bg-secondary text-center">DADOS DO USUÁRIO</p><br>
             <!--
+            <div class="text-right">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <img src="../img/outline_add_white_24dp.png"> Nova Função
+                </button>
+
+            </div>
+            -->
+            <div>
+                <?php
+                if (!empty($_SESSION['danger'])) {
+
+                    echo $_SESSION['danger'];
+                    $_SESSION['danger'] = '';
+                }
+                if (!empty($_SESSION['MSG'])) {
+                ?>
+                    <script>
+                        $(document).ready(function() {
+
+                            setTimeout(function() {
+
+                                $("#msg").alert('close');
+                            }, 3000);
+
+                        });
+                    </script>
+                <?php
+                    echo $_SESSION['MSG'];
+                    $_SESSION['MSG'] = '';
+                }
+
+                ?>
+
+            </div>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputNome" id="nome">Nome Completo</label>
+                        <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4" id="email">Email</label>
+                        <input type="text" class="form-control form-control-sm" name="email" id="email" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputFoto" id="foto">Foto</label>
+                        <input type="file" class="form-control form-control-sm" id="foto" name="foto" accept=".png, .jpg, .jpeg" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <img width="150" height="150">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputSenha" id="senha">Senha</label>
+                        <input type="password" class="form-control form-control-sm" name="senha" id="senha" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputNovasenha" id="confsenha">Confirmar senha</label>
+                        <input type="password" class="form-control form-control-sm" name="confsenha" id="confsenha" placeholder="">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState" id="funcao">Cargo</label>
+                        <select id="funcao" name="funcao" class="form-control form-control-sm">
+                            <option selected></option>
+                            <?php
+                            foreach ($dado as $dados) {
+                                echo "<option value=' . $dados->getId() . '>" . $dados->getDesc() . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4" id="data">Data de Cadastro</label>
+                        <input type="date" class="form-control form-control-sm" name="data" id="data" placeholder="" value="<?php echo date('Y-m-d'); ?>">
+                    </div>
+                </div>
+                <!--
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4" id="option">Tempo de Expiração</label>
@@ -193,28 +205,33 @@ if (isset($_POST['usuario'])) {
                 </div>
             </div>
             -->
-    </div>
-    <!--********************************************************************************************************* --->
-    <!-- ****************************************** Aplicação ************************************************** -->
+        </div>
+        <!--********************************************************************************************************* --->
+        <!-- ****************************************** Aplicação ************************************************** -->
+        <!--
+        <div class="tab-pane fade" id="nav-acesso" role="tabpanel" aria-labelledby="nav-acesso-tab">
+            <p class="text-white bg-secondary text-center">ACESSO</p>
+            <div class="form-row">
 
-    <div class="tab-pane fade" id="nav-acesso" role="tabpanel" aria-labelledby="nav-acesso-tab">
-        <p class="text-white bg-secondary text-center">ACESSO</p>
-        <div class="form-row">
+            </div>
 
         </div>
+                        -->
+        <!-- **************************************************************************************************** -->
+        <!-- ****************************************** Aplicação ************************************************** -->
+        <!--
+        <div class="tab-pane fade" id="nav-aplicacao" role="tabpanel" aria-labelledby="nav-aplicacao-tab">
+            <p class="text-white bg-secondary text-center">APLICAÇÃO</p>
+            <div class="form-row">
+            </div>
 
-    </div>
-    <!-- **************************************************************************************************** -->
-    <!-- ****************************************** Aplicação ************************************************** -->
-    <div class="tab-pane fade" id="nav-aplicacao" role="tabpanel" aria-labelledby="nav-aplicacao-tab">
-        <p class="text-white bg-secondary text-center">APLICAÇÃO</p>
-        <div class="form-row">
         </div>
-
-    </div>
-    <!-- **************************************************************************************************** -->
-    <div class="text-right">
-        <input class="btn btn-success" name="usuario" type="submit" value="Salvar registro">
+                        -->
+        <!-- **************************************************************************************************** -->
+        <hr>
+        <div class="text-right">
+            <input class="btn btn-success" name="usuario" type="submit" value="Salvar registro">
+        </div>
     </div>
 
     </form>
@@ -248,6 +265,7 @@ if (isset($_POST['usuario'])) {
                             <input type="type" class="form-control form-control-sm" name="descricao" id="descricao" placeholder="">
                         </div>
                     </div>
+                    <hr>
                     <div class=text-right>
                         <button type="submit" class="btn btn-success">Cadastro Função</button>
                     </div>
@@ -284,23 +302,21 @@ if (isset($_POST['usuario'])) {
 <!-- **************************************************************************************************** -->
 
 <script>
+    function previewImagem() {
 
-function previewImagem(){
-
-    var foto = document.querySelector('input[name=foto]').files[0];
+        var foto = document.querySelector('input[name=foto]').files[0];
         console.log(foto)
-    var preview = document.querySelector('img');
+        var preview = document.querySelector('img');
 
-    var reader = new FileReader();
-    reader.onload = function(){
-        preview.src = reader.result;
+        var reader = new FileReader();
+        reader.onload = function() {
+            preview.src = reader.result;
 
+        }
+        if (foto) {
+            reader.readAsDataURL(foto);
+        } else {
+            preview.src = "";
+        }
     }
-    if(foto){
-        reader.readAsDataURL(foto);
-    }else{
-        preview.src = "";
-    }
-}
-
 </script>
