@@ -125,13 +125,16 @@ if (isset($_POST['usuario'])) {
                     <label for="inputNome" id="nome">Nome Completo</label>
                     <input type="text" class="form-control form-control-sm" name="nome" id="nome" placeholder="">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="inputEmail4" id="email">Email</label>
                     <input type="text" class="form-control form-control-sm" name="email" id="email" placeholder="">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="inputFoto" id="foto">Foto</label>
                     <input type="file" class="form-control form-control-sm" id="foto" name="foto" accept=".png, .jpg, .jpeg" placeholder="">
+                </div>
+                <div class="form-group col-md-2">
+                     <img width="150" height="150">
                 </div>
             </div>
             <div class="form-row">
@@ -279,3 +282,25 @@ if (isset($_POST['usuario'])) {
     });
 </script>
 <!-- **************************************************************************************************** -->
+
+<script>
+
+function previewImagem(){
+
+    var foto = document.querySelector('input[name=foto]').files[0];
+        console.log(foto)
+    var preview = document.querySelector('img');
+
+    var reader = new FileReader();
+    reader.onload = function(){
+        preview.src = reader.result;
+
+    }
+    if(foto){
+        reader.readAsDataURL(foto);
+    }else{
+        preview.src = "";
+    }
+}
+
+</script>
