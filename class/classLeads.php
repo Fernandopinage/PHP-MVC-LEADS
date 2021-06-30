@@ -19,6 +19,7 @@ Class ClassLeads{
     private $descricao;
     private $datainicio;
     private $datafim;
+    private $formapagamento;
 
     public function setId($id){
         $this->id = $id;
@@ -160,6 +161,14 @@ Class ClassLeads{
     }
     public function getDatafim(){
         return $this->datafim;
+
+    }
+    public function setFormapagamento($formapagamento){
+        $this->formapagamento = $formapagamento;
+
+    }
+    public function getFormapagamento(){
+        return $this->formapagamento;
 
     }
 } 

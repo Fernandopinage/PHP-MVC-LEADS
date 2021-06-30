@@ -14,8 +14,8 @@ $dados = $empresa->buscaEmpresa();
 
 
 
-$produto = new PrecoDAO();
-$prod = $produto->buscaPreco();
+$produto = new ProdutoPAO();
+$prod = $produto->buscarProduto();
 
 
 if (isset($_POST['salvar_leads'])) {
@@ -36,9 +36,12 @@ if (isset($_POST['salvar_leads'])) {
         $Classleads->setValor(implode(",", $_POST['valor']));
         $Classleads->setUnidade(implode(",", $_POST['unidade']));
     }
+
     $Classleads->setDescricao($_POST['descricao']);
     $Classleads->setDatainicio($_POST['data_inicio']);
     $Classleads->setDatafim($_POST['data_fim']);
+    $Classleads->setFormapagamento($_POST['formapagamento']);
+
 
     $Leads = new ClassLeadsDAO();
     $Leads->insertLeads($Classleads);
@@ -150,17 +153,17 @@ if (isset($_POST['salvar_leads'])) {
                         <select id="funcao" name="formapagamento" class="form-control form-control-sm">
 
                             <option selected value="AVISTA">AVISTA</option>
-                            <option value="2X">PARCELADO 2X</option>
-                            <option value="3X">PARCELADO 3X</option>
-                            <option value="4X">PARCELADO 4X</option>
-                            <option value="5X">PARCELADO 5X</option>
-                            <option value="6X">PARCELADO 6X</option>
-                            <option value="7X">PARCELADO 7X</option>
-                            <option value="8X">PARCELADO 8X</option>
-                            <option value="9X">PARCELADO 9X</option>
-                            <option value="10X">PARCELADO 10X</option>
-                            <option value="11X">PARCELADO 11X</option>
-                            <option value="12X">PARCELADO 12X</option>
+                            <option value="2X">PARCELADO EM 2X</option>
+                            <option value="3X">PARCELADO EM 3X</option>
+                            <option value="4X">PARCELADO EM 4X</option>
+                            <option value="5X">PARCELADO EM 5X</option>
+                            <option value="6X">PARCELADO EM 6X</option>
+                            <option value="7X">PARCELADO EM 7X</option>
+                            <option value="8X">PARCELADO EM 8X</option>
+                            <option value="9X">PARCELADO EM 9X</option>
+                            <option value="10X">PARCELADO EM 10X</option>
+                            <option value="11X">PARCELADO EM 11X</option>
+                            <option value="12X">PARCELADO EM 12X</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
@@ -174,15 +177,9 @@ if (isset($_POST['salvar_leads'])) {
                 </div>
 
                 <hr>
-                <!-- Adicionando produtos -->
-                <p class="text-white bg-secondary text-center">Lista de Produtos</p>
-                <div id="lista">
-                    <p id="selecionar_produto" class="text-center">Nenhum produto na lista</p>
-
-                </div>
                 <!-- ******************** -->
 
-                <p class="text-white bg-secondary text-center">Selecionar Produtos</p>
+
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputState">Produto</label>
@@ -191,7 +188,7 @@ if (isset($_POST['salvar_leads'])) {
                             <?php
                             foreach ($prod as $prod) {
                             ?>
-                                <option value="<?php echo $prod->getDesc(); ?>"><?php echo $prod->getDesc(); ?></option>
+                                <option value="<?php echo $prod->getProduto(); ?>"><?php echo $prod->getProduto(); ?></option>
                             <?php
                             }
 
@@ -211,6 +208,20 @@ if (isset($_POST['salvar_leads'])) {
 
                 </div>
                 <!-- ***********************  -->
+                <!-- Adicionando produtos -->
+
+                <table class="table">
+                    <thead class="thead" style="background-color: #6c757d; color:#fff;">
+                        <tr>
+
+                            <th scope="col">Descrição</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista">
+
+                    </tbody>
+                </table>
         </div>
         <hr>
         <div class="text-right">
@@ -250,26 +261,23 @@ if (isset($_POST['salvar_leads'])) {
 <script>
     $(document).ready(function() {
 
+
+        var cont = 1;
         $('#adicionarCampo').click(function() {
-            var id = document.getElementById('id_hidder').value;
-            var descricao = document.getElementById('produto').value;
-            var produtos = document.getElementById('valor_hidder').value;
-            var div = document.getElementById('lista').innerHTML;
+            var select = document.querySelector('#produto');
+            var option = select.children[select.selectedIndex];
+            var produto = option.textContent;
 
-
-            if (produto != '') {
-
-                //<div class="form-check "><input class="form-check-input" type="checkbox" id="delete" onclick="myFunction()"></div>
-                div += '<hr> <div class="form-row"><div class="form-group col-md-1"><label for="exampleInputEmail1">Código</label><input type="text" class="form-control form-control-sm" name="id[]" value="' + id + '" readonly></div><div class="form-group col-md-4"><label for="exampleInputEmail1">Descrição</label><input type="text" class="form-control form-control-sm" name="produto[]" value="' + descricao + '" readonly></div><div class="form-group col-md-4"><label for="exampleInputEmail1"> Produtos</label><input type="text" class="form-control form-control-sm" name="valor[]" value="' + produtos + '"readonly></div><div class="form-group col-md-1"><label for="exampleInputEmail1">Unidade</label><input type="text" class="form-control form-control-sm" name="unidade[]"></div></div>';
-                document.getElementById('lista').innerHTML = div;
-
-            } else {
-
-            }
-
+            $('#lista').append('<tr id="campo' + cont + '"> <th scope="col"><input type="text"  id="comprador_senha" name="produto[]" value="' + produto + '" placeholder="" style="border:0px" readonly></th><th scope="col"><a class="btn btn-danger btn-sm"  id="' + cont + '" style="color: #fff;"> EXCLUIR </a></th></tr>');
+            cont++
 
         });
+        $("form").on("click", ".btn-danger", function() {
 
+            var btn_id = $(this).attr("id");
+            $('#campo' + btn_id + '').remove();
+            console.log(btn_id)
+        });
 
     });
 </script>
