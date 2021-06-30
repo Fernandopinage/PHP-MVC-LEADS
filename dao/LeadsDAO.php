@@ -11,9 +11,9 @@ Class ClassLeadsDAO extends Dao{
     public function insertLeads(Classleads $Classleads){
 
       
-        $sql = "INSERT INTO `tab_leads`(`TAB_LEADS_ID`, `TAB_LEADS_FILIAL`, `TAB_LEADS_EMPRESA`, `TAB_LEADS_CONSULTOR`, `TAB_LEADS_ENDERECO`, `TAB_LEADS_TELEFONE`, `TAB_LEADS_CELULAR`, `TAB_LEADS_FASE`, `TAB_LEADS_STATUS`, `TAB_LEADS_PRODUTO`, `TAB_LEADS_VALOR`, `TAB_LEADS_UNIDADE`, `TAB_LEADS_DESC`, `TAB_LEADS_DATAINICIO`, `TAB_LEADS_DATAFIM`, `TAB_LEADS_PAGAMENTO`) VALUES (:TAB_LEADS_ID, :TAB_LEADS_FILIAL, :TAB_LEADS_EMPRESA, :TAB_LEADS_CONSULTOR, :TAB_LEADS_ENDERECO, :TAB_LEADS_TELEFONE, :TAB_LEADS_CELULAR, :TAB_LEADS_FASE, :TAB_LEADS_STATUS, :TAB_LEADS_PRODUTO, :TAB_LEADS_VALOR, :TAB_LEADS_UNIDADE, :TAB_LEADS_DESC, :TAB_LEADS_DATAINICIO, :TAB_LEADS_DATAFIM, :TAB_LEADS_PAGAMENTO)";
+        $sql = "INSERT INTO `tab_leads`(`TAB_LEADS_ID`, `TAB_LEADS_FILIAL`, `TAB_LEADS_EMPRESA`, `TAB_LEADS_CONSULTOR`, `TAB_LEADS_ENDERECO`, `TAB_LEADS_TELEFONE`, `TAB_LEADS_CELULAR`, `TAB_LEADS_FASE`, `TAB_LEADS_STATUS`, `TAB_LEADS_PRODUTO`, `TAB_LEADS_VALOR`, `TAB_LEADS_UNIDADE`, `TAB_LEADS_DESC`, `TAB_LEADS_DATAINICIO`, `TAB_LEADS_DATAFIM`, `TAB_LEADS_PAGAMENTO`) VALUES (null, :TAB_LEADS_FILIAL, :TAB_LEADS_EMPRESA, :TAB_LEADS_CONSULTOR, :TAB_LEADS_ENDERECO, :TAB_LEADS_TELEFONE, :TAB_LEADS_CELULAR, :TAB_LEADS_FASE, :TAB_LEADS_STATUS, :TAB_LEADS_PRODUTO, :TAB_LEADS_VALOR, :TAB_LEADS_UNIDADE, :TAB_LEADS_DESC, :TAB_LEADS_DATAINICIO, :TAB_LEADS_DATAFIM, :TAB_LEADS_PAGAMENTO)";
         $insert = $this->con->prepare($sql);
-        $insert->bindValue(":TAB_LEADS_FILIAL",  $Classleads->getFilial());
+        $insert->bindValue(":TAB_LEADS_FILIAL", $Classleads->getFilial());
         $insert->bindValue(":TAB_LEADS_EMPRESA", $Classleads->getEmpresa());
         $insert->bindValue(":TAB_LEADS_CONSULTOR", $Classleads->getConsultor());
         $insert->bindValue(":TAB_LEADS_ENDERECO", $Classleads->getEndereco());
@@ -22,8 +22,8 @@ Class ClassLeadsDAO extends Dao{
         $insert->bindValue(":TAB_LEADS_FASE", $Classleads->getFase());
         $insert->bindValue(":TAB_LEADS_STATUS", $Classleads->getStatus());
         $insert->bindValue(":TAB_LEADS_PRODUTO", $Classleads->getProduto());
-        $insert->bindValue(":TAB_LEADS_VALOR", $Classleads->getValor());
-        $insert->bindValue(":TAB_LEADS_UNIDADE", $Classleads->getUnidade());
+        $insert->bindValue(":TAB_LEADS_VALOR", '');
+        $insert->bindValue(":TAB_LEADS_UNIDADE", '');
         $insert->bindValue(":TAB_LEADS_DESC", $Classleads->getDescricao());
         $insert->bindValue(":TAB_LEADS_DATAINICIO", $Classleads->getDatainicio());
         $insert->bindValue(":TAB_LEADS_DATAFIM", $Classleads->getDatafim());

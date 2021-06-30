@@ -18,35 +18,62 @@ $produto = new ProdutoPAO();
 $prod = $produto->buscarProduto();
 
 
+
+
 if (isset($_POST['salvar_leads'])) {
+    if (!empty($_POST['filial']) and !empty($_POST['empresa']) and !empty($_POST['fase']) and !empty($_POST['status']) and !empty($_POST['formapagamento'])) {
 
-    $Classleads = new ClassLeads();
-    $Classleads->setFilial($_POST['filial']);
-    $Classleads->setEmpresa($_POST['empresa']);
-    $Classleads->setConsultor($_POST['consultor']);
-    $Classleads->setEndereco($_POST['endereco']);
-    $Classleads->setTelefone($_POST['telefone']);
-    $Classleads->setCelular($_POST['celular']);
-    $Classleads->setFase($_POST['fase']);
-    $Classleads->setStatus($_POST['status']);
 
-    if (isset($_POST['produto'])) {
 
-        $Classleads->setProduto(implode(",", $_POST['produto']));
-        $Classleads->setValor(implode(",", $_POST['valor']));
-        $Classleads->setUnidade(implode(",", $_POST['unidade']));
+        $Classleads = new ClassLeads();
+        $Classleads->setFilial($_POST['filial']);
+        $Classleads->setEmpresa($_POST['empresa']);
+        $Classleads->setConsultor($_POST['consultor']);
+        $Classleads->setEndereco($_POST['endereco']);
+        $Classleads->setTelefone($_POST['telefone']);
+        $Classleads->setCelular($_POST['celular']);
+        $Classleads->setFase($_POST['fase']);
+        $Classleads->setStatus($_POST['status']);
+        $Classleads->setDescricao($_POST['descricao']);
+        $Classleads->setFormapagamento($_POST['formapagamento']);
+        $Classleads->setDatainicio($_POST['data_inicio']);
+        $Classleads->setDatafim($_POST['data_fim']);
+
+        if (isset($_POST['produto'])) {
+
+            $Classleads->setProduto(implode(",", $_POST['produto']));
+            $Leads = new ClassLeadsDAO();
+            //$Leads->insertLeads($Classleads);
+?>
+            <script>
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Registro salvo com sucesso',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
+
+        <?php
+
+        }
+    } else {
+
+        ?>
+        <script>
+            Swal.fire({
+                title: 'Atenção!',
+                text: 'Preenchar todos os campos obrigatório !',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            })
+        </script>
+
+<?php
+
     }
-
-    $Classleads->setDescricao($_POST['descricao']);
-    $Classleads->setDatainicio($_POST['data_inicio']);
-    $Classleads->setDatafim($_POST['data_fim']);
-    $Classleads->setFormapagamento($_POST['formapagamento']);
-
-
-    $Leads = new ClassLeadsDAO();
-    $Leads->insertLeads($Classleads);
 }
-
 ?>
 
 <style>
@@ -85,7 +112,7 @@ if (isset($_POST['salvar_leads'])) {
                 <div class="form-row">
 
                     <div class="form-group col-md-4">
-                        <label for="inputState">Filial</label>
+                        <label for="inputState">Filial<span style="color:red;">*</span></label>
                         <select id="funcao" name="filial" class="form-control form-control-sm">
                             <option selected value="manaus">Manaus</option>
                             <option value="sao paulo">São Paulo</option>
@@ -93,7 +120,7 @@ if (isset($_POST['salvar_leads'])) {
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputState" id="empresa">Empresa</label>
+                        <label for="inputState" id="empresa">Empresa<span style="color:red;">*</span></label>
                         <select id="funcao" name="empresa" class="form-control form-control-sm">
                             <option selected></option>
                             <?php
@@ -125,17 +152,19 @@ if (isset($_POST['salvar_leads'])) {
                         <input type="text" class="form-control form-control-sm" id="celular" name="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputState">Fase da Proposta</label>
+                        <label for="inputState">Fase da Proposta <span style="color:red;">*</span></label>
                         <select id="funcao" name="fase" class="form-control form-control-sm">
-                            <option selected value="elaboração">Elaboração</option>
+                            <option selected></option>
+                            <option value="elaboração">Elaboração</option>
                             <option value="negociação">Negociação</option>
                             <option value="contrato">Contrato</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputState">Status</label>
+                        <label for="inputState">Status <span style="color:red;">*</span></label>
                         <select id="funcao" name="status" class="form-control form-control-sm">
-                            <option selected value="frio">Frio</option>
+                            <option selected></option>
+                            <option value="frio">Frio</option>
                             <option value="morno">Morno</option>
                             <option value="quente">Quente</option>
                         </select>
@@ -149,10 +178,10 @@ if (isset($_POST['salvar_leads'])) {
                         </div>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputEmail4" id="email">Codição de Pagamento</label>
+                        <label for="inputEmail4" id="email">Codição de Pagamento <span style="color:red;">*</span></label>
                         <select id="funcao" name="formapagamento" class="form-control form-control-sm">
-
-                            <option selected value="AVISTA">AVISTA</option>
+                            <option selected></option>
+                            <option value="AVISTA">AVISTA</option>
                             <option value="2X">PARCELADO EM 2X</option>
                             <option value="3X">PARCELADO EM 3X</option>
                             <option value="4X">PARCELADO EM 4X</option>
@@ -197,10 +226,6 @@ if (isset($_POST['salvar_leads'])) {
                         </select>
                     </div>
 
-                    <div class="form-group col-md-2">
-                        <div id="hiddenValor">
-                        </div>
-                    </div>
                     <div class="form-group col-md-3">
                         <a href="#" data-id="1" id="adicionarCampo" class="btn btn-primary" style="margin-top: 25px; border-radius:17px;">Adicionar</a>
                         <!-- <a href="#" data-id="1" id="removerCampo" class="btn btn-danger" style="margin-top: 25px; border-radius:17px;" onclick="remover()">Remover</a> -->
@@ -231,31 +256,7 @@ if (isset($_POST['salvar_leads'])) {
     </div>
 </div>
 
-<script>
-    $("#produto").change(function() {
 
-        var id = document.getElementById('produto').value
-        console.log(id)
-        $('#hiddenValor').html('');
-
-        $.ajax({
-
-            type: 'POST', // Formado de envio
-            url: '../ajax/produtoLeads.php', // URL para onde vai ser enviados
-            data: {
-                id: id
-            },
-            success: function(data) {
-                $('#hiddenValor').html(data);
-            }
-
-
-        });
-        return false;
-
-
-    });
-</script>
 
 
 <script>
@@ -280,12 +281,4 @@ if (isset($_POST['salvar_leads'])) {
         });
 
     });
-</script>
-
-
-
-<script>
-    function remover() {
-        var a = document.querySelectorAll("input:checked");
-    }
 </script>

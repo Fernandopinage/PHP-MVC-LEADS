@@ -13,9 +13,6 @@ Class ClassLeads{
     private $fase;
     private $status;
     private $produto;
-    private $valor;
-    private $unidade;
-    private $desconto;
     private $descricao;
     private $datainicio;
     private $datafim;
@@ -110,23 +107,6 @@ Class ClassLeads{
 
     }
 
-    public function setValor($valor){
-        $this->valor = $valor;
-
-    }
-    public function getValor(){
-        return $this->valor;
-
-    }
-
-    public function setUnidade($unidade){
-        $this->unidade = $unidade;
-
-    }
-    public function getUnidade(){
-        return $this->unidade;
-
-    }
 
     public function setDesconto($desconto){
         $this->descontovalor = $desconto;
