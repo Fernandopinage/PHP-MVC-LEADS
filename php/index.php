@@ -22,16 +22,16 @@
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Email</span>
+                <span class="input-group-text" id="basic-addon1"><img src="../img/outline_email_black_24dp.png"></span>
             </div>
             <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
         </div>
        
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Senha</span>
+                <span class="input-group-text" id="basic-addon1"><img src="../img/outline_lock_black_24dp.png"></span>
             </div>
-            <input type="password" class="form-control" placeholder="Username" aria-label="" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="text-left" id="cadastro">
