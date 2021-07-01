@@ -1,20 +1,18 @@
-<?php 
+<?php
 
 session_start();
 
-if(isset($_SESSION['valor'])){
-
-    echo $_SESSION['valor'];
-    //header('Location: ../php/index.php');
-}else{
-
-    //echo "nao existe";
+/*
+if (!$_SESSION['usuario'] == null) {
+    header('Location: ../php/painel.php?page=home/');
 }
+*/
+var_dump($_SESSION['usuario']);
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="PT-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -33,9 +31,9 @@ if(isset($_SESSION['valor'])){
 
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-    <a class="navbar-brand" href="#">
-    <img src="../img/progride_logo.png" width="120" height="40" alt="">
-  </a>
+        <a class="navbar-brand" href="?page=home/">
+            <img src="../img/progride_logo.png" width="120" height="40" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -87,19 +85,18 @@ if(isset($_SESSION['valor'])){
                 </li>
                  -->
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
-                        Logout
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="?page=sair/">Sair</a>
-                        <a class="dropdown-item" href="?page=senha/">Alter Senha</a>
-                        <a class="dropdown-item" href="?page=sobre/">Sobre</a>
 
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
+                        <?php echo $_SESSION['usuario']['id'];?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?page=sair/">Sair</a>
                     </div>
                 </li>
-
             </ul>
+
         </div>
 
     </nav>

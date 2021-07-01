@@ -60,8 +60,8 @@
                 break;    
 
             case 'sair/':
-                session_destroy();
-               
+    
+            
                 break; 
 
             default:

@@ -18,24 +18,24 @@ class UsuarioDao extends Dao
         $select->bindValue(':CRM_USU_EMAIL', $ClassUsuario->getEmail());
         $select->bindValue(':CRM_USU_SENHA', $ClassUsuario->getSenha());
         $select->execute();
-        $_SESSION['valor'] = array();
+       
 
 
         if ($row = $select->fetch(PDO::FETCH_ASSOC)) {
 
-            $_SESSION['valor'] = array(
+            $_SESSION['usuario'] = array(
                 'id' => $row['CRM_USU_ID'],
-                'cpf' => $row['	CRM_USU_NOMERED'],
-                'razao' => $row['CRM_USU_EMAIL'],
-                'nome' => $row['CLIENTE_NOME'],
-                'email' => $row['CLIENTE_EMAIL'],
-                'sap' => $row['CLIENTE_CODSAP']
+                'nome' => $row['CRM_USU_NOMERED'],
+                'email' => $row['CRM_USU_EMAIL'],
+                'funcao' => $row['CRM_USU_ADMINISTRADOR']
             );
-             header('Location: ../php/painel.php?page=home/');
-
+           var_dump($_SESSION['usuario']);
+           
+           
         } else {
-
+            
         }
+        header('Location: ../php/painel.php?page=home/');
 
     }
 
@@ -62,8 +62,6 @@ class UsuarioDao extends Dao
 
     public function logaout(){
 
-        session_destroy();
-        header('Location: ../php/index.php');
-        
+     
     }
 }

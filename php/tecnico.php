@@ -12,8 +12,6 @@ $valor = (isset($_GET['p'])) ? $_GET['p'] : 1; // caso existe um numero de pagin
 $inicio = ($paginação * $valor) - $paginação; // inicio do contador 1 ate 10 registro
 $dado = $classTecnico->selectAgendaTecnico($inicio, $paginação);
 
-
-
 ?>
 <br>
 <br>
