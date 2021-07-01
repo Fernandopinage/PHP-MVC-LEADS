@@ -31,12 +31,12 @@ class UsuarioDao extends Dao
                 'email' => $row['CLIENTE_EMAIL'],
                 'sap' => $row['CLIENTE_CODSAP']
             );
+             header('Location: ../php/painel.php?page=home/');
 
         } else {
 
         }
 
-        header('Location: ../php/painel.php?page=home/');
     }
 
     public function insertUsuario(ClassUsuario $ClassUsuario)
@@ -58,5 +58,12 @@ class UsuarioDao extends Dao
         $insert->bindValue(':inicioexpiracao', $ClassUsuario->getData());
         $insert->bindValue(':controle', '');
         $insert->execute();
+    }
+
+    public function logaout(){
+
+        session_destroy();
+        header('Location: ../php/index.php');
+        
     }
 }

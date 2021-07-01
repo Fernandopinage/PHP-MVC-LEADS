@@ -1,4 +1,7 @@
-<?php include_once "../layout/head.php"; ?>
+<?php 
+    include_once "../layout/head.php"; 
+    include_once "../dao/UsuarioDao.php";
+?>
 
 <div class="container">
 
@@ -55,6 +58,11 @@
             case 'pagamento/':
                 include_once "../php/pagamento.php";
                 break;    
+
+            case 'sair/':
+                session_destroy();
+               
+                break; 
 
             default:
                 # code...
