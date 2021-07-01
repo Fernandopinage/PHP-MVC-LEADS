@@ -10,6 +10,10 @@ include_once "../class/classUsuario.php";
 class UsuarioDao extends Dao
 {
 
+    public function validarUsuario(ClassUsuario $ClassUsuario){
+
+        echo "ok";
+    }
 
     public function insertUsuario(ClassUsuario $ClassUsuario)
     {

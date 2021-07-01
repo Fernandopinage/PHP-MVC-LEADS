@@ -1,3 +1,20 @@
+<?php 
+
+    include_once "../class/classUsuario.php";
+    include_once "../dao/UsuarioDao.php";
+
+    if(isset($_POST['acessar'])){
+
+        $ClassUsuario = new ClassUsuario();
+        $ClassUsuario->setEmail($_POST['email']);
+        $ClassUsuario->setSenha($_POST['password']);
+
+        $Usuario = new UsuarioDao();
+        $Usuario->validarUsuario($ClassUsuario);
+
+    }   
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -24,14 +41,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><img src="../img/outline_email_black_24dp.png"></span>
             </div>
-            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Digite seu e-mail" name="email" aria-label="Username" aria-describedby="basic-addon1">
         </div>
        
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><img src="../img/outline_lock_black_24dp.png"></span>
             </div>
-            <input type="password" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="Digite sua senha" name="password" aria-label="" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="text-left" id="cadastro">
@@ -39,7 +56,7 @@
         </div>
 
         <div class="text-right">
-            <input type="submit" name="acessar" class="btn btn-dark btn-lg btn-block" value="Acessar">
+            <input type="submit" name="acessar" class="btn btn-dark btn-lg btn-block" value="ACESSAR">
         </div>
 
     </form>

@@ -7,6 +7,7 @@ class Tecnico extends Dao
 {
 
 
+
     public function insertAgendaTecnico(ClassTecnico $ClassTecnico)
     {
 
