@@ -46,8 +46,10 @@ if (isset($_POST['usuario'])) {
         $ClassUsuario->setData($_POST['data']);
         //$ClassUsuario->setOption($_POST['option']);
 
+  
         $usuario = new UsuarioDao();
         $usuario->insertUsuario($ClassUsuario);
+       
     ?>
         <script>
             Swal.fire({
@@ -164,7 +166,10 @@ if (isset($_POST['usuario'])) {
                             <option selected></option>
                             <?php
                             foreach ($dado as $dados) {
-                                echo "<option value=' . $dados->getId() . '>" . $dados->getDesc() . "</option>";
+                            ?>
+                                <option value="<?php echo  $dados->getDesc(); ?>"><?php echo  $dados->getDesc(); ?></option>
+
+                            <?php
                             }
                             ?>
                         </select>

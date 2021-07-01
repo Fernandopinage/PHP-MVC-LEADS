@@ -10,9 +10,33 @@ include_once "../class/classUsuario.php";
 class UsuarioDao extends Dao
 {
 
-    public function validarUsuario(ClassUsuario $ClassUsuario){
+    public function validarUsuario(ClassUsuario $ClassUsuario)
+    {
 
-        echo "ok";
+        $sql = "SELECT * FROM `crm_usu` WHERE CRM_USU_EMAIL = :CRM_USU_EMAIL and CRM_USU_SENHA = :CRM_USU_SENHA";
+        $select = $this->con->prepare($sql);
+        $select->bindValue(':CRM_USU_EMAIL', $ClassUsuario->getEmail());
+        $select->bindValue(':CRM_USU_SENHA', $ClassUsuario->getSenha());
+        $select->execute();
+        $_SESSION['valor'] = array();
+
+
+        if ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+
+            $_SESSION['valor'] = array(
+                'id' => $row['CRM_USU_ID'],
+                'cpf' => $row['	CRM_USU_NOMERED'],
+                'razao' => $row['CRM_USU_EMAIL'],
+                'nome' => $row['CLIENTE_NOME'],
+                'email' => $row['CLIENTE_EMAIL'],
+                'sap' => $row['CLIENTE_CODSAP']
+            );
+
+        } else {
+
+        }
+
+        header('Location: ../php/painel.php?page=home/');
     }
 
     public function insertUsuario(ClassUsuario $ClassUsuario)
@@ -34,6 +58,5 @@ class UsuarioDao extends Dao
         $insert->bindValue(':inicioexpiracao', $ClassUsuario->getData());
         $insert->bindValue(':controle', '');
         $insert->execute();
-
     }
 }
