@@ -4,7 +4,7 @@ include_once "../dao/Produto.php";
 
 if (isset($_POST['produto_cadastro'])) {
 
-    if (!empty($_POST['cod'])  and !empty($_POST['produto'])) {
+    if (!empty($_POST['cod'])  and !empty($_POST['produto']) and !empty($_POST['venda'])) {
 
 
         $ClassProduto = new ClassProduto();
@@ -118,8 +118,8 @@ if (isset($_POST['produto_cadastro'])) {
                         <input type="text" class="form-control form-control-sm" name="custo" id="custo" placeholder="">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="cliente">Valor de Venda</label>
-                        <input type="text" class="form-control form-control-sm" name="venda" id="venda" placeholder="">
+                        <label for="cliente">Valor de Venda <spam style="color: red;"><strong>*</strong></spam></label>
+                        <input type="text" class="form-control form-control-sm" name="venda" id="venda" onKeyPress="return(moeda(this,'.',',',event))" placeholder="">
                     </div>
                 </div>
                 <div class="form-row">
