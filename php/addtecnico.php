@@ -169,7 +169,7 @@ if (isset($_POST['cadastroagenda'])) {
 
         </div>
         <div class="text-right">
-            <input class="btn btn-success" name="cadastroagenda" type="submit" value="Salvar Agendamento">
+            <input class="btn btn-success" name="cadastroagenda" type="submit" value="Salvar">
 
         </div>
 

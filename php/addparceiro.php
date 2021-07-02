@@ -285,7 +285,7 @@ if (isset($_POST['cadastrar'])) {
         </div>
         <hr>
         <div class="text-right">
-            <button type="submit" class="btn btn-success" value="cadastra dadados" name="cadastrar">Cadastra Dados </button>
+            <button type="submit" class="btn btn-success" value="Salvar" name="cadastrar">Cadastra Dados </button>
         </div>
         <!-- **************************************************************************************************** -->
         <!---  Mascara de CEP  ---->

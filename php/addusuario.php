@@ -276,7 +276,7 @@ if (isset($_POST['usuario'])) {
                     </div>
                     <hr>
                     <div class=text-right>
-                        <button type="submit" class="btn btn-success">Cadastro Função</button>
+                        <button type="submit" class="btn btn-success">Salvar</button>
                     </div>
                 </form>
             </div>

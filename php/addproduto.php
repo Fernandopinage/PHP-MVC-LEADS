@@ -137,7 +137,7 @@ if (isset($_POST['produto_cadastro'])) {
             </div>
             <hr>
             <div class="text-right">
-                <input class="btn btn-success" name="produto_cadastro" type="submit" value="Salvar Produto">
+                <input class="btn btn-success" name="produto_cadastro" type="submit" value="Salvar">
             </div>
         </div>
 </form>

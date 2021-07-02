@@ -43,7 +43,7 @@ if (isset($_POST['salvar_leads'])) {
 
             $Classleads->setProduto(implode(",", $_POST['produto']));
             $Leads = new ClassLeadsDAO();
-            //$Leads->insertLeads($Classleads);
+            $Leads->insertLeads($Classleads);
 ?>
             <script>
                 Swal.fire({
@@ -135,7 +135,7 @@ if (isset($_POST['salvar_leads'])) {
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputEmail4" id="email">Consultor</label>
-                        <input type="text" class="form-control form-control-sm" name="consultor" id="consultor" placeholder="" value="<?php echo$_SESSION["user"]["nome"] ?>">
+                        <input type="text" class="form-control form-control-sm" name="consultor" id="consultor" placeholder="" value="<?php echo$_SESSION["user"]["nome"] ?>" readonly>
                     </div>
                 </div>
                 <div class="form-row">
@@ -178,10 +178,10 @@ if (isset($_POST['salvar_leads'])) {
                         </div>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputEmail4" id="email">Codição de Pagamento <span style="color:red;">*</span></label>
+                        <label for="inputEmail4" id="email">Codição de Pagamento </label>
                         <select id="funcao" name="formapagamento" class="form-control form-control-sm">
-                            <option selected></option>
-                            <option value="AVISTA">AVISTA</option>
+                  
+                            <option selected value="AVISTA">AVISTA</option>
                             <option value="2X">PARCELADO EM 2X</option>
                             <option value="3X">PARCELADO EM 3X</option>
                             <option value="4X">PARCELADO EM 4X</option>
@@ -250,7 +250,7 @@ if (isset($_POST['salvar_leads'])) {
         </div>
         <hr>
         <div class="text-right">
-            <input type="submit" class="btn btn-success" name="salvar_leads" value="Salvar Leads">
+            <input type="submit" class="btn btn-success" name="salvar_leads" value="Salvar">
         </div>
         </form>
     </div>

@@ -14,7 +14,7 @@ class ClassLeadsDAO extends Dao
 
 
         $sql = "INSERT INTO `tab_leads`(`TAB_LEADS_ID`, `TAB_LEADS_FILIAL`, `TAB_LEADS_EMPRESA`, `TAB_LEADS_CONSULTOR`, `TAB_LEADS_ENDERECO`, `TAB_LEADS_TELEFONE`, `TAB_LEADS_CELULAR`, `TAB_LEADS_FASE`, `TAB_LEADS_STATUS`, `TAB_LEADS_PRODUTO`, `TAB_LEADS_VALOR`, `TAB_LEADS_UNIDADE`, `TAB_LEADS_DESC`, `TAB_LEADS_DATAINICIO`, `TAB_LEADS_DATAFIM`, `TAB_LEADS_PAGAMENTO`) VALUES (null, :TAB_LEADS_FILIAL, :TAB_LEADS_EMPRESA, :TAB_LEADS_CONSULTOR, :TAB_LEADS_ENDERECO, :TAB_LEADS_TELEFONE, :TAB_LEADS_CELULAR, :TAB_LEADS_FASE, :TAB_LEADS_STATUS, :TAB_LEADS_PRODUTO, :TAB_LEADS_VALOR, :TAB_LEADS_UNIDADE, :TAB_LEADS_DESC, :TAB_LEADS_DATAINICIO, :TAB_LEADS_DATAFIM, :TAB_LEADS_PAGAMENTO)";
-        $insert = $this->con->prepare($sql);
+        $insert = $this->con->prepare($sql);    
         $insert->bindValue(":TAB_LEADS_FILIAL", $Classleads->getFilial());
         $insert->bindValue(":TAB_LEADS_EMPRESA", $Classleads->getEmpresa());
         $insert->bindValue(":TAB_LEADS_CONSULTOR", $Classleads->getConsultor());
@@ -31,6 +31,7 @@ class ClassLeadsDAO extends Dao
         $insert->bindValue(":TAB_LEADS_DATAFIM", $Classleads->getDatafim());
         $insert->bindValue(":TAB_LEADS_PAGAMENTO", $Classleads->getFormapagamento());
         $insert->execute();
+       
     }
 
     public function buscaEmpresa()
@@ -74,8 +75,9 @@ class ClassLeadsDAO extends Dao
 
     public function listarProposta()
     {
+        $valor = $_SESSION["user"]["nome"];
 
-        $sql = "SELECT * FROM `tab_leads` ORDER BY `tab_leads`.`TAB_LEADS_ID` DESC ";
+        $sql = "SELECT * FROM `tab_leads` where TAB_LEADS_CONSULTOR='$valor' ORDER BY `tab_leads`.`TAB_LEADS_ID` DESC ";
         $select = $this->con->prepare($sql);
         $select->execute();
         $array = array();
