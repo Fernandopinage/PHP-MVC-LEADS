@@ -46,9 +46,12 @@
             case 'usuario/':
                 include_once "../php/usuario.php";
                 break;
+            case 'add/proposta/':
+                include_once "../php/addleads.php";
+                break;
             case 'proposta/':
                 include_once "../php/leads.php";
-                break;
+                break;                
             case 'produto/':
                 include_once "../php/produto.php";
                 break;
