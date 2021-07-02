@@ -62,6 +62,8 @@ include_once "../class/classParceiro.php";
 
                 $classParceiro->setID($row['TAB_CAD_ID']);
                 $classParceiro->setNome($row['TAB_CAD_NOME']);
+                $classParceiro->setFantasia($row['TAB_CAD_FANTASIA']);
+                $classParceiro->setCpf($row['TAB_CAD_CPF']);
 
                 $array[] = $classParceiro;
             }
@@ -69,6 +71,8 @@ include_once "../class/classParceiro.php";
                 return $array;
 
         }
+
+
 
 
     }

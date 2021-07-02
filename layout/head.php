@@ -28,7 +28,7 @@ if(empty($_SESSION['user']['nome'])){
 
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <a class="navbar-brand" href="?page=home/">
+        <a class="navbar-brand" href="?page=parceiro/">
             <img src="../img/progride_logo.png" width="120" height="40" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,6 @@ if(empty($_SESSION['user']['nome'])){
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="?page=parceiro/">Parceiros</a>
-                        <a class="dropdown-item" href="?page=add/parceiro/">Parceiros</a>
                         <a class="dropdown-item" href="?page=produto/">Produtos</a>
                         <!-- <a class="dropdown-item" href="?page=cargo/">Cargo</a> -->
                         <!-- <a class="dropdown-item" href="?page=preco/">Tabela de Preço</a> -->
