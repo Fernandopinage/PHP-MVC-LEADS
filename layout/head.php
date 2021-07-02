@@ -7,7 +7,7 @@ if (!$_SESSION['usuario'] == null) {
     header('Location: ../php/painel.php?page=home/');
 }
 */
-var_dump($_SESSION['usuario']);
+;
 
 ?>
 
@@ -89,7 +89,7 @@ var_dump($_SESSION['usuario']);
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
-                        <?php echo $_SESSION['usuario']['id'];?>
+                        <?php echo $_SESSION['usuario']['id']; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="?page=sair/">Sair</a>
