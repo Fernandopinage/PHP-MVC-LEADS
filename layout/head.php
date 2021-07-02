@@ -42,7 +42,7 @@ if(empty($_SESSION['user']['nome'])){
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="?page=parceiro/">Parceiros</a>
-                        <a class="dropdown-item" href="?page=produto/">Produto</a>
+                        <a class="dropdown-item" href="?page=add/produto/">Produto</a>
                         <!-- <a class="dropdown-item" href="?page=cargo/">Cargo</a> -->
                         <!-- <a class="dropdown-item" href="?page=preco/">Tabela de Preço</a> -->
                         <!-- <a class="dropdown-item" href="?page=colaborador/">Colaborador</a> -->
