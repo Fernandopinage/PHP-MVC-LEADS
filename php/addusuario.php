@@ -46,10 +46,10 @@ if (isset($_POST['usuario'])) {
         $ClassUsuario->setData($_POST['data']);
         //$ClassUsuario->setOption($_POST['option']);
 
-  
+
         $usuario = new UsuarioDao();
         $usuario->insertUsuario($ClassUsuario);
-       
+
     ?>
         <script>
             Swal.fire({
@@ -79,7 +79,11 @@ if (isset($_POST['usuario'])) {
     }
 </style>
 
-<br><br>
+<br>
+<div class="text-right">
+    <a class="btn btn-outline-success" href="?page=add/usuario/">Adicionar Função</a>
+</div>
+<br>
 <div class="card" style="margin-bottom: 20px;">
     <div class="navbar navbar-dark bg-dark navbar-expand-lg" style=" color:#fff; ">
         USUÁRIO

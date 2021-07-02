@@ -47,7 +47,16 @@ if(empty($_SESSION['user']['nome'])){
                         <!-- <a class="dropdown-item" href="?page=colaborador/">Colaborador</a> -->
                         <!-- <a class="dropdown-item" href="?page=contrato/">Negócios</a> -->
                         <!--<a class="dropdown-item" href="?page=pagamento/">Pagamentos</a> -->
-                        <a class="dropdown-item" href="?page=usuario/">Usuário</a>
+                     <?php 
+
+                            
+                        if($_SESSION['user']['funcao'] == 'VENDEDOR' or  $_SESSION['user']['funcao'] == 'ADMINISTRADOR'){
+                           
+                            echo '<a class="dropdown-item" href="?page=usuario/">Usuário</a>';
+                        }
+                         
+                        ?>  
+                     
                         
                     </div>
                 </li>
@@ -85,16 +94,19 @@ if(empty($_SESSION['user']['nome'])){
 
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
-                     <?php echo $_SESSION['user']['nome']; ?>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opção
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="?page=sair/">Sair</a>
                     </div>
                 </li>
             </ul>
-
         </div>
+
+            <div class="text-right" style="color: #f9d228;">
+            <?php echo '<span style="color: #fff; font-size: 15px;">Olá,  </span> '.$_SESSION['user']['nome']; ?>
+            </div>
 
     </nav>
 
