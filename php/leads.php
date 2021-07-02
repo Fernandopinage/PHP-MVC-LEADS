@@ -152,19 +152,19 @@ if (isset($_POST['salvar_leads'])) {
                         <input type="text" class="form-control form-control-sm" id="celular" name="celular" placeholder="" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputState">Fase da Proposta <span style="color:red;">*</span></label>
+                        <label for="inputState">Fase da Proposta</label>
                         <select id="funcao" name="fase" class="form-control form-control-sm">
-                            <option selected></option>
-                            <option value="elaboração">Elaboração</option>
+                
+                            <option selected value="elaboração">Elaboração</option>
                             <option value="negociação">Negociação</option>
                             <option value="contrato">Contrato</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputState">Status <span style="color:red;">*</span></label>
+                        <label for="inputState">Status</label>
                         <select id="funcao" name="status" class="form-control form-control-sm">
-                            <option selected></option>
-                            <option value="frio">Frio</option>
+                            
+                            <option selected value="frio">Frio</option>
                             <option value="morno">Morno</option>
                             <option value="quente">Quente</option>
                         </select>
