@@ -1,6 +1,5 @@
 <?php 
- include_once "../dao/UsuarioDao.php";
 
- $usuario = new UsuarioDao();
- $usuario->logaout();
+session_unset();
+echo '<script>window.location.href = "../php/index.php"</script>';
 ?>
