@@ -58,6 +58,27 @@ class UsuarioDao extends Dao
         $insert->execute();
     }
 
+    public function listaUsuario(){
+
+        $sql = "SELECT * FROM `crm_usu`";
+        $select = $this->con->prepare($sql);
+        $select->execute();
+        $array = array();
+        while($row = $select->fetch(PDO::FETCH_ASSOC)){
+
+            $ClassUsuario = new ClassUsuario();
+
+            $ClassUsuario->setID($row['CRM_USU_ID']);
+            $ClassUsuario->setNome($row['CRM_USU_NOMERED']);
+            $ClassUsuario->setEmail($row['CRM_USU_EMAIL']);
+     
+
+            $array[] = $ClassUsuario;
+        }
+        return $array;
+
+    }
+
     public function logaout(){
         session_destroy();
         session_unset();

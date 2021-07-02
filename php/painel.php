@@ -43,8 +43,13 @@
             case 'OS/':
                 include_once "../php/ordem.php";
                 break;
+
             case 'usuario/':
                 include_once "../php/usuario.php";
+                break;
+
+            case 'add/usuario/':
+                include_once "../php/addusuario.php";
                 break;
             case 'add/proposta/':
                 include_once "../php/addleads.php";

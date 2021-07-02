@@ -29,7 +29,7 @@ if(empty($_SESSION['user']['nome'])){
 <body>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <a class="navbar-brand" href="?page=parceiro/">
-            <img src="../img/progride_logo.png" width="120" height="40" alt="">
+            <img src="../img/progride_logo.png" width="130" height="40" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,6 +48,7 @@ if(empty($_SESSION['user']['nome'])){
                         <!-- <a class="dropdown-item" href="?page=contrato/">Negócios</a> -->
                         <!--<a class="dropdown-item" href="?page=pagamento/">Pagamentos</a> -->
                         <a class="dropdown-item" href="?page=usuario/">Usuário</a>
+                        
                     </div>
                 </li>
 

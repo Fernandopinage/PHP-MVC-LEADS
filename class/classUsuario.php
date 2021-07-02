@@ -3,6 +3,7 @@
 class ClassUsuario
 {
 
+    private $ID;
     private $nome;
     private $email;
     private $foto;
@@ -12,6 +13,14 @@ class ClassUsuario
     private $option;
 
 
+    public function setID($ID)
+    {
+        $this->ID = $ID;
+    }
+    public function getID()
+    {
+        return $this->ID;
+    }
     public function setNome($nome)
     {
         $this->nome = $nome;
