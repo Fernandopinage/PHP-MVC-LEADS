@@ -211,7 +211,7 @@ if (isset($_POST['salvar_leads'])) {
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="inputState">Produto</label>
+                        <label for="inputState">Produto <span style="color:red;">*</span></label>
                         <select id="produto" class="form-control form-control-sm">
                             <option selected></option>
                             <?php
@@ -269,8 +269,11 @@ if (isset($_POST['salvar_leads'])) {
             var option = select.children[select.selectedIndex];
             var produto = option.textContent;
 
-            $('#lista').append('<tr id="campo' + cont + '"> <th scope="col"><input type="text"  id="comprador_senha" name="produto[]" value="' + produto + '" placeholder="" style="border:0px" readonly></th><th scope="col"><a class="btn btn-danger btn-sm"  id="' + cont + '" style="color: #fff;"> EXCLUIR </a></th></tr>');
-            cont++
+            if(produto != ''){
+               
+                $('#lista').append('<tr id="campo' + cont + '"> <th scope="col"><input type="text"  id="comprador_senha" name="produto[]" value="' + produto + '" placeholder="" style="border:0px" readonly></th><th scope="col"><a class="btn btn-danger btn-sm"  id="' + cont + '" style="color: #fff;"> EXCLUIR </a></th></tr>');
+                cont++
+            }
 
         });
         $("form").on("click", ".btn-danger", function() {
