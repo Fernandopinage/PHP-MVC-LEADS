@@ -5,6 +5,8 @@ $usuario = new UsuarioDao();
 $dados = $usuario->listaUsuario();
 
 ?>
+
+<link href='../css/table.css' rel='stylesheet' />
 <br><br>
 <div class="text-right">
 <a class="btn btn-outline-success" href="?page=add/usuario/">Adicionar Usuário</a>

@@ -6,6 +6,7 @@ $dados = $parceiro->contratoParceiro();
 
 ?>
 <br><br>
+<link href='../css/table.css' rel='stylesheet' />
 <div class="text-right">
 <a class="btn btn-outline-success" href="?page=add/parceiro/">Adicionar Empresa</a>
 </div>

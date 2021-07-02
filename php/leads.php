@@ -6,6 +6,8 @@ $dados = $leades->listarProposta();
 
 ?>
 <br><br>
+
+<link href='../css/table.css' rel='stylesheet' />
 <div class="text-right">
 <a class="btn btn-outline-success" href="?page=add/proposta/">Criar Proposta</a>
 </div>
