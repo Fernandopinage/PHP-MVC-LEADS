@@ -43,6 +43,24 @@ Class ProdutoPAO extends Dao{
            
             return $array;
     }
+
+    public function listaProduto(){
+
+        $sql = "SELECT * from `crm_tdp` ";
+        $select = $this->con->prepare($sql);
+        $select->execute();
+        $array = array();
+        while($row = $select->fetch(PDO::FETCH_ASSOC)){
+            $classProduto = new ClassProduto();
+            $classProduto->setID($row['CRM_TDP_ID']);
+            $classProduto->setProduto($row['CRM_TDP_PRODUTO']);
+            $classProduto->setVenda($row['CRM_TDP_VENDA']);
+            
+            $array[] = $classProduto;
+        }
+       
+        return $array;
+    }
 }
 
 

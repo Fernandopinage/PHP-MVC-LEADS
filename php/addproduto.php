@@ -131,7 +131,7 @@ if (isset($_POST['produto_cadastro'])) {
                 <div class="form-row">
                     <div class="form-group col-md-1">
                         <label for="cliente">Comissão(%)</label>
-                        <input type="text" class="form-control form-control-sm" name="comissao" id="comissao" placeholder="">
+                        <input type="number" class="form-control form-control-sm" name="comissao" id="comissao" step="1%" min="1" max="3" size="3" placeholder="">
                     </div>
                 </div>
             </div>
