@@ -5,12 +5,13 @@
 
     if(isset($_POST['acessar'])){
 
-        $ClassUsuario = new ClassUsuario();
-        $ClassUsuario->setEmail($_POST['email']);
-        $ClassUsuario->setSenha($_POST['password']);
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
         $Usuario = new UsuarioDao();
-        $Usuario->validarUsuario($ClassUsuario);
+        $dados = $Usuario->validarUsuario($email, $password);
+
+        var_dump($dados);
 
     }   
 

@@ -1,6 +1,7 @@
 <?php 
     include_once "../layout/head.php"; 
     include_once "../dao/UsuarioDao.php";
+   
 ?>
 
 <div class="container">
@@ -59,10 +60,7 @@
                 include_once "../php/pagamento.php";
                 break;    
 
-            case 'sair/':
-    
             
-                break; 
 
             default:
                 # code...

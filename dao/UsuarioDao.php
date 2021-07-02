@@ -10,31 +10,29 @@ include_once "../class/classUsuario.php";
 class UsuarioDao extends Dao
 {
 
-    public function validarUsuario(ClassUsuario $ClassUsuario)
+    public function validarUsuario($email, $password)
     {
 
-        $sql = "SELECT * FROM `crm_usu` WHERE CRM_USU_EMAIL = :CRM_USU_EMAIL and CRM_USU_SENHA = :CRM_USU_SENHA";
+        $sql = "SELECT CRM_USU_id,CRM_USU_EMAIL,CRM_USU_NOMERED,CRM_USU_ADMINISTRADOR FROM `crm_usu` WHERE CRM_USU_EMAIL = :CRM_USU_EMAIL and CRM_USU_SENHA = :CRM_USU_SENHA";
         $select = $this->con->prepare($sql);
-        $select->bindValue(':CRM_USU_EMAIL', $ClassUsuario->getEmail());
-        $select->bindValue(':CRM_USU_SENHA', $ClassUsuario->getSenha());
+        $select->bindValue(':CRM_USU_EMAIL', $email);
+        $select->bindValue(':CRM_USU_SENHA', $password);
         $select->execute();
-       
-
+        
+        session_start();
+        $_SESSION['user'] = array();
 
         if ($row = $select->fetch(PDO::FETCH_ASSOC)) {
 
-            $_SESSION['usuario'] = array(
-                'id' => $row['CRM_USU_ID'],
-                'nome' => $row['CRM_USU_NOMERED'],
+            $_SESSION['user'] = array(
+                'id' => $row['CRM_USU_id'],
                 'email' => $row['CRM_USU_EMAIL'],
+                'nome' => $row['CRM_USU_NOMERED'],
                 'funcao' => $row['CRM_USU_ADMINISTRADOR']
             );
-           var_dump($_SESSION['usuario']);
-           
-           
-        } else {
-            
         }
+
+        
         header('Location: ../php/painel.php?page=home/');
 
     }
@@ -61,7 +59,8 @@ class UsuarioDao extends Dao
     }
 
     public function logaout(){
-
-     
+ 
+        session_destroy();
+        header('Location: ../php/painel.php?page=home/');
     }
 }

@@ -2,12 +2,9 @@
 
 session_start();
 
-/*
-if (!$_SESSION['usuario'] == null) {
+if(empty($_SESSION['user']['nome'])){
     header('Location: ../php/painel.php?page=home/');
 }
-*/
-;
 
 ?>
 
@@ -89,7 +86,7 @@ if (!$_SESSION['usuario'] == null) {
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f9d228;">
-                        <?php echo $_SESSION['usuario']['id']; ?>
+                     <?php echo $_SESSION['user']['nome']; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="?page=sair/">Sair</a>

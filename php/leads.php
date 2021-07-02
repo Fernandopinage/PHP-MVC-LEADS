@@ -135,7 +135,7 @@ if (isset($_POST['salvar_leads'])) {
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputEmail4" id="email">Consultor</label>
-                        <input type="text" class="form-control form-control-sm" name="consultor" id="consultor" placeholder="">
+                        <input type="text" class="form-control form-control-sm" name="consultor" id="consultor" placeholder="" value="<?php echo $_SESSION["usuario"]["nome"] ?>" readonly>
                     </div>
                 </div>
                 <div class="form-row">
