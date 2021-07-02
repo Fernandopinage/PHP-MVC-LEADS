@@ -22,6 +22,10 @@
                 include_once "../php/parceiro.php";
                 break;
 
+            case 'add/parceiro/':
+                include_once "../php/addparceiro.php";
+                break;
+
 
             case 'colaborador/':
                 include_once "../php/colaborador.php";
