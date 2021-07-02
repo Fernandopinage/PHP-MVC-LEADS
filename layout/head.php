@@ -3,7 +3,7 @@
 session_start();
 
 if(empty($_SESSION['user']['nome'])){
-    header('Location: ../php/painel.php?page=home/');
+    header('Location: ../php/index.php');
 }
 
 ?>

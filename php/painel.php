@@ -60,7 +60,9 @@
                 include_once "../php/pagamento.php";
                 break;    
 
-            
+            case 'sair/':
+                include_once "../php/logaout.php";
+                break;         
 
             default:
                 # code...

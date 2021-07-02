@@ -59,8 +59,8 @@ class UsuarioDao extends Dao
     }
 
     public function logaout(){
- 
         session_destroy();
-        header('Location: ../php/painel.php?page=home/');
+        session_unset();
+       
     }
 }
