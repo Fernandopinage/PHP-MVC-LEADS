@@ -46,7 +46,7 @@ Class ProdutoPAO extends Dao{
 
     public function listaProduto(){
 
-        $sql = "SELECT * from `crm_tdp` ";
+        $sql = "SELECT * from `crm_tdp` where crm_tdp_tipo = 'Ativo' ";
         $select = $this->con->prepare($sql);
         $select->execute();
         $array = array();

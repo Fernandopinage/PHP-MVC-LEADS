@@ -97,7 +97,7 @@ if (isset($_POST['produto_cadastro'])) {
                         <input type="text" class="form-control form-control-sm" name="referencia" id="referencia" placeholder="">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="cliente">Tipo</label>
+                        <label for="cliente">Bloqueio de Tela</label>
                         <select class="form-control form-control-sm" id="tipo" name="tipo">
                             <option selected value="Ativo">Ativo</option>
                             <option value="Inativo">Inativo</option>
